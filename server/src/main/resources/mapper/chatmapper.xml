@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.server.chat.persistence.ChatMapper">
+
+    <select id="getChatRoomInfo" resultType="com.server.chat.entity.ChatRoomDAO">
+        SELECT * FROM chatroom WHERE id = #{id}
+    </select>
+
+    <select id="getUserChatRoom" resultType="com.server.chat.entity.UserChatVO">
+        SELECT ec.id as id, ec.roomid as roomid, c.roomnm as roomnm, ec.userid as userid, ec.status as status, ec.chatoffset as chatoffset, c.resdate as resdate FROM enterchat ec LEFT JOIN chatroom c ON ec.roomid = c.id WHERE userid = #{userid} and status IS true
+    </select>
+
+    <select id="getEnterChatInfo" resultType="com.server.chat.entity.EnterChatDAO">
+        SELECT * FROM enterchat WHERE roomid = #{roomid} and userid = #{userid} and status IS true
+    </select>
+
+    <select id="getChatList" resultType="com.server.chat.entity.ChatMessageVO">
+        SELECT * FROM chatMessage WHERE roomid = #{roomId} and chattingid >= (SELECT chatoffset FROM enterchat WHERE userid = #{senderId} and roomid = #{roomId}) ORDER BY chattingid ASC
+    </select>
+
+    <select id="getChatLastNum" resultType="integer">
+        SELECT c.id as id FROM chatting c LEFT JOIN enterchat e ON c.enterid = e.id WHERE e.roomid = #{roomid} ORDER BY id DESC limit 1
+    </select>
+
+    <select id="checkUserEnterRoom" resultType="com.server.chat.entity.EnterChatDAO">
+        select * from enterchat where userid = #{userId} and roomid = #{roomId}
+    </select>
+
+    <insert id="enterRoom" parameterType="com.server.chat.entity.EnterChatDAO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO enterchat VALUES (DEFAULT, #{roomid}, #{userid}, DEFAULT, #{chatoffset})
+    </insert>
+
+    <update id="outRoom">
+        UPDATE enterchat SET status = false WHERE id = #{enterId}
+    </update>
+
+    <insert id="updateRoomStatus">
+        UPDATE enterchat SET status = true, chatoffset = #{offsetNum} WHERE id = #{enterId}
+    </insert>
+
+    <select id="getEnterInfo" resultType="com.server.chat.entity.EnterChatDAO">
+        select * from enterchat where id = #{enterId}
+    </select>
+
+    <insert id="createRoom" parameterType="com.server.chat.entity.ChatRoomDAO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO chatroom (roomnm, resdate) values(#{roomnm}, current_timestamp)
+    </insert>
+
+    <insert id="saveFileInfo">
+        INSERT INTO fileinfo values(#{id}, #{saveFolder}, #{originName}, #{saveName}, #{fileType}, current_timestamp)
+    </insert>
+
+    <select id="getFileInfo" resultType="com.server.chat.entity.FileDTO">
+        SELECT * FROM fileinfo WHERE id = #{id}
+    </select>
+
+</mapper>

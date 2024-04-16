@@ -1,0 +1,67 @@
+/* common */
+.clearfix {display:block;clear:both;content:'';}
+
+#codeArea {position:absolute;width:100%;top:50%;transform:translateY(-50%);text-align:center;}
+#codeArea h1 {font-size:2rem;font-weight:900;}
+#codeArea p {padding:5vh 0;}
+#codeArea p .point {font-weight:700;display:block;font-size:1.2rem;padding-bottom:5px;}
+#codeArea input {width:20vw;display:block;margin:0 auto 5vh;height:40px;}
+#codeArea input::placeholder {text-align:center;font-weight:700;font-size:1.2rem;}
+#codeArea button {background-color:rgb(102, 100, 100);font-size:1.7rem;color:#fff;padding:10px 40px;border-radius:20px;}
+#codeArea button:hover, #codeArea button:active {background-color:#333;}
+
+.popup_area {padding:25px 20px 20px;border:1px solid #333;box-sizing:border-box;background-color:#fff;position:relative;text-align:center;display:none;width:calc(100% - 20px);position:absolute;z-index:100;}
+.popup_area > .close_btn {position:absolute;top:5px;right:5px;z-index:10;}
+.popup_area .btn {border:1px solid gray;padding:5px 20px;margin-top:20px;border-radius:5px;display:inline-block;}
+.popup_area .btn:hover, .popup_area .btn:active {background-color:gray;color:#fff;}
+
+/* template*/
+#app {height:100vh;width:100%;position:relative;}
+#left, #right {height:100%;position:relative;overflow:hidden;}
+#left {float:left;width:15%;}
+#right {float:right;width:85%;}
+#left .content, #right .content {margin:10px 0;padding:0 10px;height:calc(100% - 20px);}
+#left .content {border-right:1px solid gray;box-sizing:border-box;}
+#leftHeader {width:100%;position:relative;}
+#leftHeader h1 {font-size:1.5rem;font-weight:700;}
+#leftHeader > div {position:absolute;top:0;right:0;text-align:right;line-height:1.7;}
+#leftHeader .popup_area {width:100%;position:relative;}
+#leftHeader .more {line-height:2.2;}
+#leftHome > ul > li {height:50px;position:relative;line-height:50px;border-bottom:2px solid #333;box-sizing:border-box;padding-left:5px;}
+#leftHome > ul > li > div {position:absolute;right:5px;top:14px;}
+#leftHome > ul > li > div .popup_area {top:20px;right:0;width:10vw;}
+#leftFooter {position:fixed;bottom:10px;left:10px;right:10px;width:calc(15% - 20px);}
+#leftFooter > div .thumbnail {width:40px;height:40px;border-radius:50%;background-color:#333;display:inline-block;vertical-align:middle;}
+#leftFooter > div p {display:inline-block;vertical-align:middle;}
+#leftFooter .btn_area {position:absolute;right:0;top:10px;}
+#leftFooter .btn_area .popup_area {bottom:20px;right:0;width:10vw;}
+#right .content.inter {padding:0;margin:0;height:100%;}
+#right .content.chat {margin-top:40px;height:calc(100% - 50px);}
+#right .content.chat .btn_area {text-align:center;}
+#right #roadChat {text-align:center;display:inline-block;margin:0 auto;padding:10px 20px;border:1px solid #333;border-radius:20px;margin-bottom:20px;}
+#right #chatArea {overflow-y:scroll;height:calc(100% - 200px);margin-bottom:40px;padding:0 50px}
+#right #chatArea > ul > li {margin-top:20px;padding:5px 0;display:block;display:block;clear:both;content:'';}
+#right #chatArea .thumbnail {width:40px;height:40px;border-radius:50%;background-color:#333;display:inline-block;vertical-align:middle;}
+#right #chatArea .chat {border:1px solid #444;border-radius:5px;display:inline-block;vertical-align:middle;padding:20px 40px;}
+#right #chatArea .chat img {max-width:300px;height:auto;}
+#right #chatArea .center {text-align:center;margin:20px 0;font-weight:bolder;}
+#right #chatArea .file a {color:darkred!important;}
+#right #chatArea .right {float:right;}
+#right #chatArea .right .chat {margin-right:10px;}
+#right #chatArea .left .chat {margin-left:10px;}
+#right #chatArea .left .sender {display:inline-block;vertical-align:middle;text-align:center;}
+#right #chatForm {position:fixed;bottom:0;width:calc(85% - 20px);height:100px;}
+#right #chatForm textarea {width:90%;display:inline-block;height:calc(100% - 20px);vertical-align:middle;}
+#right #chatForm > div {width:calc(10% - 12px);display:inline-block;vertical-align:middle;}
+#right #chatForm > div button {display:block;margin:0 auto;border:1px solid #333;box-sizing:border-box;}
+#right #chatForm .moreBtn {width:30px;height:30px;border-radius:50%;margin-bottom:10px;}
+#right #chatForm .submitBtn {padding:10px 30px;border-radius:10px;}
+#right #chatForm > div button:hover, #right #chatForm > div button:active, #right .content.chat .btn_area button:hover, #right .content.chat .btn_area button:active {background-color:#333;color:#fff;}
+
+#right #chatForm > div#filePopupArea {display:none;width:100%;position:absolute;right:0;bottom:110px;padding:1rem;text-align:left;background-color:white;border:1px solid #333;box-sizing:border-box;z-index:10;}
+#right #chatForm > div#filePopupArea.active {display:block;}
+#right #filePopupArea ul li {display:inline-block;margin-left:20px;}
+#right #filePopupArea ul li:first-child {margin-left:0;}
+#right #filePopupArea ul li button {border:none!important;padding:5px 20px;}
+
+#inputArea {display:none;margin-bottom:20px;}
