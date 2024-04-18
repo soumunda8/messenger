@@ -1,6 +1,6 @@
 <template>
   <div id="chatForm">
-    <file-send-form ref="fileSendForm" />
+    <file-send-form ref="fileSendForm" @file-prepared="handleFilePrepared" :uploadStatus="uploadStatus"/>
     <div class="chatting_form">
       <label for="chatInput">
         <textarea id="chatInput" v-model="message"></textarea>
@@ -21,6 +21,9 @@ export default {
   components: {
     FileSendForm
   },
+  props: {
+    uploadStatus: String
+  },
   data () {
     return {
       message: ''
@@ -40,6 +43,9 @@ export default {
     },
     clearMessage () {
       this.message = ''
+    },
+    handleFilePrepared (fileData) {
+      this.$emit('file-prepared', fileData)
     }
   }
 }

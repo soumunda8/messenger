@@ -5,7 +5,7 @@
       <div class="content chat">
         <input type="hidden" v-model="enterId" />
         <chatting-list :chatList="chatList" />
-        <chatting-form @submitChat="submitChat" />
+        <chatting-form ref="chattingForm" @submitChat="submitChat" @file-prepared="sendFile" :uploadStatus="uploadStatus" />
       </div>
     </div>
   </div>
@@ -30,26 +30,29 @@ export default {
     return {
       stompClient: null,
       enterId: '',
-      chatList: []
+      chatList: [],
+      uploadStatus: null
     }
   },
   mounted () {
-    const userid = this.$session.get('userId')
-    const roomid = this.$route.params.roomId
-
-    api.post('/getChatList', {userid, roomid})
-      .then(res => {
-        this.chatList = res.data
-      })
-
-    api.post('/getEnterId', {userid, roomid})
-      .then(res => {
-        this.enterId = res.data
-      })
-
+    this.fetchChatList()
     this.connect()
   },
   methods: {
+    fetchChatList () {
+      const userid = this.$session.get('userId')
+      const roomid = this.$route.params.roomId
+
+      api.post('/getChatList', {userid, roomid})
+        .then(res => {
+          this.chatList = res.data
+        })
+
+      api.post('/getEnterId', {userid, roomid})
+        .then(res => {
+          this.enterId = res.data
+        })
+    },
     connect () {
       const roomid = this.$route.params.roomId
       const socket = new SockJS('http://localhost:8086/ws-stomp')
@@ -68,10 +71,10 @@ export default {
       const roomid = this.$route.params.roomId
       const id = this.enterId
       const senderid = this.$session.get('userId')
-      const sendernm = this.$session.get('userId')
+      const sendernm = this.$session.get('userNm')
       api.post('/chat/send', {message, roomid, id, senderid, sendernm})
         .then(res => {
-          // Handle response
+          this.$refs.chattingForm.clearMessage()
         })
         .catch(error => {
           console.error('Error sending message:', error)
@@ -82,6 +85,23 @@ export default {
         this.stompClient.disconnect()
       }
       console.log('Disconnected')
+    },
+    sendFile (fileData) {
+      const formData = new FormData()
+      formData.append('roomId', this.$route.params.roomId)
+      formData.append('enterId', this.enterId)
+      formData.append('userId', this.$session.get('userId'))
+      formData.append('userNm', this.$session.get('userNm'))
+      formData.append('uploadFile', fileData.files[0])
+      api.post('/chat/sendFile', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(res => {
+        this.uploadStatus = 'success'
+      }).catch(error => {
+        console.error('Error uploading file : ', error.response.data)
+      })
     }
   },
   beforeDestroy () {

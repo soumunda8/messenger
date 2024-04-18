@@ -21,7 +21,6 @@ export default {
       const roomid = payload.roomid
       const senderid = this.$session.get('userId')
       const sendernm = this.$session.get('userNm')
-      alert(roomid + ', ' + senderid + ', ' + sendernm)
       api.post('/enterRoom', {roomid, senderid, sendernm})
         .then(res => {
           this.$router.push({name: 'Chat', params: { roomId: roomid }})

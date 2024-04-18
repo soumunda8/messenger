@@ -82,26 +82,24 @@ public class ChatCtrl {
     }
 
     @PostMapping("/chat/send")
-    /*public void send(@RequestParam("message") String message, @RequestParam("roomId") int roomId, @RequestParam("enterId") int enterId) throws Exception {*/
-    public void send(@RequestBody ChatMessageVO chatMessageVO) throws Exception {
+    public ResponseEntity<?> send(@RequestBody ChatMessageVO chatMessageVO) throws Exception {
         int enterId = chatMessageVO.getId();
         int roomId = chatMessageVO.getRoomid();
         String message = chatMessageVO.getMessage();
-
         String messageType = "text";
         String userId = chatMessageVO.getSenderid();
         String userNm = chatMessageVO.getSendernm();
-
-        producer.send(topicNm, enterId, message, messageType);
-        chatService.webMessage(userId, userNm, roomId, message, messageType);
+        try {
+            producer.send(topicNm, enterId, message, messageType);
+            chatService.webMessage(userId, userNm, roomId, message, messageType);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error sending message");
+        }
     }
 
     @PostMapping("/chat/sendFile")
-    @ResponseBody
-    public boolean sendFile(@RequestParam("roomId") int roomId, @RequestParam("enterId") int enterId, @RequestParam("uploadFile") MultipartFile uploadFiles, HttpServletRequest request) throws Exception {
-
-        String userId = (String) session.getAttribute("userId");
-        String userNm = (String) session.getAttribute("userNm");
+    public boolean sendFile(@RequestParam("roomId") int roomId, @RequestParam("enterId") int enterId, @RequestParam("userId") String userId, @RequestParam("userNm") String userNm, @RequestParam("uploadFile") MultipartFile uploadFiles, HttpServletRequest request) throws Exception {
 
         if(uploadFiles != null) {
 
@@ -137,12 +135,12 @@ public class ChatCtrl {
             String message = "";
             String innerMessage = "";
             if(fileTypeArr[0].equals("image")) {
-                innerMessage = "<img src='/upload/" + userId + File.separator + roomId + File.separator + uploadFilename + "' />";
+                innerMessage = "<img src='/api/upload/" + userId + File.separator + roomId + File.separator + uploadFilename + "' />";
             } else {
                 innerMessage = originalFilename;
             }
 
-            message = "<a href='/util/download?id=" + fid + "'>" + innerMessage + "</a>";
+            message = "<a href='/api/util/download?id=" + fid + "' download>" + innerMessage + "</a>";
             String messageType = "upload";
 
             producer.send(topicNm, enterId, message, messageType);
@@ -183,7 +181,7 @@ public class ChatCtrl {
 
         EnterChatDAO userInfo = chatService.getEnterChatInfo(roomId, userId);
 
-        String message = session.getAttribute("userNm") + " 님이 입장했습니다.";
+        String message = userNm + " 님이 입장했습니다.";
         String messageType = "enter";
 
         producer.send(topicNm, userInfo.getId(), message, messageType);
@@ -216,6 +214,11 @@ public class ChatCtrl {
 
     @GetMapping("/util/download")
     public void fileDownload(@RequestParam String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println(id);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
         FileDTO files = chatService.getFileInfo(id);
 
         String realPath = "C:\\Uploads" + File.separator;
