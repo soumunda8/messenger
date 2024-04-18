@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "axios": "^0.25.0",
+    "sockjs-client": "^1.6.1",
+    "stompjs": "^2.3.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-session": "^1.0.0",

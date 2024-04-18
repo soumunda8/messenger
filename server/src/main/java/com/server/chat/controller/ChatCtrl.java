@@ -3,6 +3,7 @@ package com.server.chat.controller;
 import com.server.chat.entity.*;
 import com.server.chat.service.ChatServiceImpl;
 import com.server.chat.service.Producer;
+import com.server.member.entity.MemberDAO;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,7 +28,6 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-//@CrossOrigin
 @RequiredArgsConstructor
 @RequestMapping("/api")
 public class ChatCtrl {
@@ -43,53 +43,57 @@ public class ChatCtrl {
     @Autowired
     private ChatServiceImpl chatService;
 
-    @GetMapping("/chat/{roomId}")
-    public String chatHome(@PathVariable(required = false) int roomId, Model model) throws Exception {
+    @PostMapping("/getChatList")
+    public List<ChatMessageVO> getChatList(@RequestBody EnterChatDAO enterChatDAO) throws Exception {
 
-        String userId = (String) session.getAttribute("userId");
-        if(userId == null || userId.isEmpty()) {
-            return "redirect:/";
-        } else {
-            EnterChatDAO userInfo = chatService.getEnterChatInfo(roomId, userId);
-            if(userInfo == null) {
-                return "redirect:/enter";
-            } else {
-                model.addAttribute("enterId", userInfo.getId());
-            }
-
-            List<ChatMessageVO> chatList = chatService.getChatList(roomId, userId);
-            model.addAttribute("chatList", chatList);
-            model.addAttribute("roomId", roomId);
-            return "chat";
+        String userId = enterChatDAO.getUserid();
+        int roomId = enterChatDAO.getRoomid();
+        EnterChatDAO userInfo = chatService.getEnterChatInfo(roomId, userId);
+        if(userInfo == null) {
+            return null;
         }
+
+        return chatService.getChatList(roomId, userId);
 
     }
 
-    @GetMapping("/outRoom/{enterId}")
-    public String outRoom(@PathVariable(required = false) int enterId) throws Exception {
+    @PostMapping("/getEnterId")
+    public int getEnterId(@RequestBody EnterChatDAO enterChatDAO) throws Exception {
+
+        EnterChatDAO checkUserDAO = chatService.checkUserEnterRoom(enterChatDAO.getUserid(), enterChatDAO.getRoomid());
+        return checkUserDAO.getId();
+
+    }
+
+    @PostMapping("/outRoom")
+    public boolean outRoom(@RequestBody ChatMessageVO chatMessageVO) throws Exception {
+
+        int enterId = chatMessageVO.getId();
 
         chatService.outRoom(enterId);
 
-        String message = session.getAttribute("userNm") + " 님이 퇴장했습니다.";
+        String message = chatMessageVO.getSendernm() + " 님이 퇴장했습니다.";
         String messageType = "out";
 
         producer.send(topicNm, enterId, message, messageType);
 
-        return "redirect:/enter";
+        return true;
 
     }
 
     @PostMapping("/chat/send")
-    @ResponseBody
-    public void send(@RequestParam("message") String message, @RequestParam("roomId") int roomId, @RequestParam("enterId") int enterId) throws Exception {
+    /*public void send(@RequestParam("message") String message, @RequestParam("roomId") int roomId, @RequestParam("enterId") int enterId) throws Exception {*/
+    public void send(@RequestBody ChatMessageVO chatMessageVO) throws Exception {
+        int enterId = chatMessageVO.getId();
+        int roomId = chatMessageVO.getRoomid();
+        String message = chatMessageVO.getMessage();
 
         String messageType = "text";
-        String userId = (String) session.getAttribute("userId");
-        String userNm = (String) session.getAttribute("userNm");
+        String userId = chatMessageVO.getSenderid();
+        String userNm = chatMessageVO.getSendernm();
 
         producer.send(topicNm, enterId, message, messageType);
         chatService.webMessage(userId, userNm, roomId, message, messageType);
-
     }
 
     @PostMapping("/chat/sendFile")
@@ -152,16 +156,11 @@ public class ChatCtrl {
 
     }
 
-    @RequestMapping(value="/enterRoom", method=RequestMethod.POST)
-    public ResponseEntity<String> enterRoom(@RequestParam("roomId") int roomId) throws Exception {
-        String userId = (String) session.getAttribute("userId");
-        String userNm = (String) session.getAttribute("userNm");
-
-        String result = "false";
-
-        if(session.getAttribute("userId") == null) {
-            result = "null";
-        }
+    @PostMapping(value = "/enterRoom")
+    public boolean enterRoom(@RequestBody ChatMessageVO chatMessageVO) throws Exception {
+        String userId = chatMessageVO.getSenderid();
+        String userNm = chatMessageVO.getSendernm();
+        int roomId = chatMessageVO.getRoomid();
 
         EnterChatDAO checkUserDAO = chatService.checkUserEnterRoom(userId, roomId);
 
@@ -190,40 +189,29 @@ public class ChatCtrl {
         producer.send(topicNm, userInfo.getId(), message, messageType);
         chatService.webMessage(userId, userNm, roomId, message, messageType);
 
-        result = "true";
-
-        return ResponseEntity.ok(result);
+        return true;
 
     }
 
-    @GetMapping("/create")
-    public String createRoom() throws Exception {
-        return "create";
-    }
-
-    @RequestMapping(value="/createRoom", method=RequestMethod.POST)
-    public ResponseEntity createRoomPro(@RequestParam("roomNm") String roomNm) throws Exception {
-        String userId = (String) session.getAttribute("userId");
-
+    @PostMapping(value = "/createRoom")
+    public int createRoomPro(@RequestBody UserChatVO userChatVO) throws Exception {
         ChatRoomDAO chatRoomDAO = new ChatRoomDAO();
-        chatRoomDAO.setRoomnm(roomNm);
+        chatRoomDAO.setRoomnm(userChatVO.getRoomnm());
         chatService.createRoom(chatRoomDAO);
 
         int roomId = chatRoomDAO.getId();
         EnterChatDAO enterChatDAO = new EnterChatDAO();
-        enterChatDAO.setUserid(userId);
+        enterChatDAO.setUserid(userChatVO.getUserid());
         enterChatDAO.setRoomid(roomId);
         enterChatDAO.setChatoffset(0);
         chatService.enterRoom(enterChatDAO);
 
-        return new ResponseEntity<>(roomId, HttpStatus.OK);
+        return roomId;
     }
 
-    @RequestMapping(value="/util/getMyChatList", method=RequestMethod.POST)
-    public ResponseEntity getMyChatList() throws Exception {
-        String userId = (String) session.getAttribute("userId");
-        List<UserChatVO> chatListForLeft = chatService.getUserChatRoom(userId);
-        return new ResponseEntity<>(chatListForLeft, HttpStatus.OK);
+    @PostMapping(value="/getMyChatList")
+    public List<UserChatVO> getMyChatList(@RequestBody MemberDAO memberDAO) throws Exception {
+        return chatService.getUserChatRoom(memberDAO.getId());
     }
 
     @GetMapping("/util/download")

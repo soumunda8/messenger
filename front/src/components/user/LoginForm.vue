@@ -5,6 +5,7 @@
         <button type="submit">로그인</button>
     </form>
 </template>
+
 <script>
 export default {
   name: 'LoginForm',

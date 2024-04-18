@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import LoginForm from '../components/LoginForm.vue'
+import LoginForm from '@/components/user/LoginForm.vue'
 import api from '@/api'
 
 export default {
@@ -17,12 +17,10 @@ export default {
   },
   methods: {
     onsubmit (payload) {
-      console.log(payload)
       const id = payload.userId
       const pw = payload.userPw
       api.post('/login', {id, pw})
         .then(res => {
-          console.log(res.data)
           if (res.data === 'fail') {
             alert('아이디와 비밀번호를 다시 확인해주세요')
           } else {

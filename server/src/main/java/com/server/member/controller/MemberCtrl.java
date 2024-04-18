@@ -30,13 +30,10 @@ public class MemberCtrl {
         }
     }
 
-    @GetMapping("/logout")
-    public String logoutPro() {
-        System.out.println(">>>>>>>>>>>>>>>>>>>>");
-        System.out.println("로그아웃 들어옴");
-        System.out.println(">>>>>>>>>>>>>>>>>>>>");
+    @PostMapping("/logout")
+    public boolean logoutPro() {
         session.invalidate();
-        return "redirect:/";
+        return true;
     }
 
 }
