@@ -4,6 +4,7 @@ import Login from '@/pages/user/Login'
 import Chat from '@/pages/chat/Chat'
 import Enter from '@/pages/chat/Enter'
 import Create from '@/pages/chat/Create'
+import Draw from '@/pages/Draw'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ const router = new Router({
       path: '/chat/:roomId',
       name: 'Chat',
       component: Chat
+    },
+    {
+      path: '/draw',
+      name: 'Draw',
+      component: Draw
     }
   ]
 })

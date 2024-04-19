@@ -7,7 +7,8 @@
         </div>
         <div v-else-if="chat.senderid === currentUserId">
           <div :class="{'right': true, ' file': chat.messagetype === 'upload'}">
-            <div class="chat" v-html="chat.message"></div>
+            <!--<div class="chat" v-html="chat.message"></div>-->
+            <div class="chat" v-html="processMessage(chat)"></div>
             <div class="thumbnail"></div>
           </div>
         </div>
@@ -17,7 +18,8 @@
               <div class='thumbnail'></div>
               <p class='senderName'>{{chat.sendernm}}</p>
             </div>
-            <div class="chat" v-html="chat.message"></div>
+            <!--<div class="chat" v-html="chat.message"></div>-->
+            <div class="chat" v-html="processMessage(chat)"></div>
           </div>
         </div>
       </li>
@@ -46,6 +48,16 @@ export default {
           chattingDiv.scrollTop = chattingDiv.scrollHeight
         }
       })
+    },
+    processMessage (chat) {
+      if (chat.messagetype === 'upload') {
+        let downloadUrl = `/util/download?id=${chat.id}`
+        let imageUrl = `/util/upload/${chat.userid}/${chat.roomid}/${chat.filenm}.png`
+        return chat.message
+          .replace(/href="[^"]*"/, `href="${downloadUrl}"`)
+          .replace(/src="[^"]*"/, `src="${imageUrl}"`)
+      }
+      return chat.message
     }
   },
   mounted () {

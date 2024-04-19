@@ -29,7 +29,6 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
 public class ChatCtrl {
 
     private final Producer producer;
@@ -135,12 +134,12 @@ public class ChatCtrl {
             String message = "";
             String innerMessage = "";
             if(fileTypeArr[0].equals("image")) {
-                innerMessage = "<img src='/api/upload/" + userId + File.separator + roomId + File.separator + uploadFilename + "' />";
+                innerMessage = "<img src='/util/upload/" + userId + File.separator + roomId + File.separator + uploadFilename + "' />";
             } else {
                 innerMessage = originalFilename;
             }
 
-            message = "<a href='/api/util/download?id=" + fid + "' download>" + innerMessage + "</a>";
+            message = "<a href='/util/download?id=" + fid + "' download>" + innerMessage + "</a>";
             String messageType = "upload";
 
             producer.send(topicNm, enterId, message, messageType);
@@ -212,12 +211,8 @@ public class ChatCtrl {
         return chatService.getUserChatRoom(memberDAO.getId());
     }
 
-    @GetMapping("/util/download")
+    @GetMapping("/download")
     public void fileDownload(@RequestParam String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        System.out.println(id);
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
         FileDTO files = chatService.getFileInfo(id);
 

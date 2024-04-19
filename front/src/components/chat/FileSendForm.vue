@@ -1,8 +1,8 @@
 <template>
   <div id="filePopupArea" v-show="showFilePopupArea">
     <div id="inputArea" v-show="showInputArea">
-      <input type="file" id="uploadImageFile" :key="inputKey" v-show="showImageFile" name="uploadFile1" accept="image/*" @change="prepareFileUpload($event, 1)" multiple>
-      <input type="file" id="uploadAllFile" :key="inputKey" v-show="showAllFile" name="uploadFile2" accept="*/*"  @change="prepareFileUpload($event, 2)" multiple>
+      <input type="file" id="uploadImageFile" v-show="showImageFile" name="uploadFile1" accept="image/*" @change="prepareFileUpload($event, 1)" multiple>
+      <input type="file" id="uploadAllFile" v-show="showAllFile" name="uploadFile2" accept="*/*"  @change="prepareFileUpload($event, 2)" multiple>
     </div>
     <ul>
       <li><button type="button" @click="openFile(1)">앨범</button></li>
@@ -23,14 +23,12 @@ export default {
       showInputArea: false,
       showImageFile: false,
       showAllFile: false,
-      showFilePopupArea: false,
-      inputKey: 0
+      showFilePopupArea: false
     }
   },
   watch: {
     uploadStatus (newStatus) {
       if (newStatus === 'success') {
-        this.inputKey++
         this.showInputArea = false
         this.showImageFile = false
         this.showAllFile = false

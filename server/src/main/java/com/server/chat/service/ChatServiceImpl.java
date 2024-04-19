@@ -90,7 +90,7 @@ public class ChatServiceImpl implements ChatService {
         chatVO.setRoomid(roomId);
         chatVO.setMessagetype(messageType);
 
-        msgOperation.convertAndSend("/api/chat/" + roomId, chatVO);
+        msgOperation.convertAndSend("/chat/" + roomId, chatVO);
 
     }
 }

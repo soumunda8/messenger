@@ -60,7 +60,7 @@ export default {
       this.stompClient.debug = null
 
       this.stompClient.connect({}, frame => {
-        this.stompClient.subscribe('/api/chat/' + roomid, message => {
+        this.stompClient.subscribe('/chat/' + roomid, message => {
           const chatData = JSON.parse(message.body)
           this.chatList.push(chatData)
         })

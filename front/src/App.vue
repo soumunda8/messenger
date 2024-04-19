@@ -15,6 +15,11 @@ export default {
 @import '/assets/css/base.css';
 @import '/assets/css/layout.css';
 /*
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import '/assets/css/draw.css';
+*/
+
+/*
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

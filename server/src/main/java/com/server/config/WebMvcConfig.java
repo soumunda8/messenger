@@ -34,7 +34,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         String path = "C:\\Uploads" + File.separator;
 
         registry
-                .addResourceHandler("/api/upload/**")
+                .addResourceHandler("/upload/**")
                 .addResourceLocations("file:///" + path);
 
     }
