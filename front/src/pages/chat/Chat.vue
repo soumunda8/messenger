@@ -4,8 +4,9 @@
     <div id="right">
       <div class="content chat">
         <input type="hidden" v-model="enterId" />
+        <drawing-form ref="drawingForm" v-show="showCanvas" @toggle-canvas="toggleCanvas" />
         <chatting-list :chatList="chatList" />
-        <chatting-form ref="chattingForm" @submitChat="submitChat" @file-prepared="sendFile" :uploadStatus="uploadStatus" />
+        <chatting-form ref="chattingForm" @toggle-canvas="toggleCanvas" @submitChat="submitChat" @file-prepared="sendFile" :uploadStatus="uploadStatus" />
       </div>
     </div>
   </div>
@@ -15,6 +16,7 @@
 import LeftSideView from '@/components/layout/LeftSideView.vue'
 import ChattingForm from '@/components/chat/ChattingForm.vue'
 import ChattingList from '@/components/chat/ChattingList.vue'
+import DrawingForm from '@/components/chat/DrawingForm.vue'
 import api from '@/api'
 import SockJS from 'sockjs-client'
 import Stomp from 'stompjs'
@@ -24,14 +26,16 @@ export default {
   components: {
     LeftSideView,
     ChattingForm,
-    ChattingList
+    ChattingList,
+    DrawingForm
   },
   data () {
     return {
       stompClient: null,
       enterId: '',
       chatList: [],
-      uploadStatus: null
+      uploadStatus: null,
+      showCanvas: false
     }
   },
   mounted () {
@@ -102,6 +106,17 @@ export default {
       }).catch(error => {
         console.error('Error uploading file : ', error.response.data)
       })
+    },
+    toggleCanvas () {
+      this.showCanvas = !this.showCanvas // 캔버스 표시 상태를 토글합니다.
+      // showCanvas 상태에 따라 drawingForm 컴포넌트의 메소드를 호출합니다.
+      if (this.showCanvas) {
+        this.$nextTick(() => {
+          if (this.$refs.drawingForm) {
+            this.$refs.drawingForm.updateCanvasSize()
+          }
+        })
+      }
     }
   },
   beforeDestroy () {

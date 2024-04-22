@@ -51,6 +51,8 @@ export default {
       this.showInputArea = false
       this.showImageFile = false
       this.showAllFile = false
+
+      this.$emit('toggle-canvas')
     },
     openFileUpload () {
       this.showFilePopupArea = !this.showFilePopupArea

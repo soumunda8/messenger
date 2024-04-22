@@ -1,6 +1,6 @@
 <template>
   <div id="chatForm">
-    <file-send-form ref="fileSendForm" @file-prepared="handleFilePrepared" :uploadStatus="uploadStatus"/>
+    <file-send-form ref="fileSendForm" @toggle-canvas="relayEvent" @file-prepared="handleFilePrepared" :uploadStatus="uploadStatus"/>
     <div class="chatting_form">
       <label for="chatInput">
         <textarea id="chatInput" v-model="message"></textarea>
@@ -46,6 +46,9 @@ export default {
     },
     handleFilePrepared (fileData) {
       this.$emit('file-prepared', fileData)
+    },
+    relayEvent () {
+      this.$emit('toggle-canvas')
     }
   }
 }
