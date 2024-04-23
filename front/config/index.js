@@ -4,17 +4,33 @@
 
 const path = require('path')
 
+const vueAppUrl = process.env.VUE_APP_URL || 'http://localhost'
+const parsedUrl = new URL(vueAppUrl)
+const host = parsedUrl.hostname
+const clientPort = process.env.VUE_CLIENT_PORT || 3000
+const serverPort = process.env.VUE_SERVER_PORT || 8086
+
 module.exports = {
   dev: {
 
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+
+    proxyTable: {
+      '/util': {
+        target: `http://${host}:${serverPort}`,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/util': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
-    port: 3000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    host: '0.0.0.0', // can be overwritten by process.env.HOST
+    port: clientPort, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    public: `${host}:${clientPort}`,
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
@@ -41,16 +57,6 @@ module.exports = {
     cacheBusting: true,
 
     cssSourceMap: true,
-
-    proxyTable: {
-      '/util': {
-        target: 'http://localhost:8086',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/util': ''
-        }
-      }
-    },
   },
 
   build: {

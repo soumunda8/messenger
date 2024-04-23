@@ -7,7 +7,6 @@
         </div>
         <div v-else-if="chat.senderid === currentUserId">
           <div :class="{'right': true, ' file': chat.messagetype === 'upload'}">
-            <!--<div class="chat" v-html="chat.message"></div>-->
             <div class="chat" v-html="processMessage(chat)"></div>
             <div class="thumbnail"></div>
           </div>
@@ -18,7 +17,6 @@
               <div class='thumbnail'></div>
               <p class='senderName'>{{chat.sendernm}}</p>
             </div>
-            <!--<div class="chat" v-html="chat.message"></div>-->
             <div class="chat" v-html="processMessage(chat)"></div>
           </div>
         </div>
@@ -40,6 +38,12 @@ export default {
       return this.$session.get('userId')
     }
   },
+  mounted () {
+    this.updateScroll()
+  },
+  updated () {
+    this.updateScroll()
+  },
   methods: {
     updateScroll () {
       this.$nextTick(() => {
@@ -58,13 +62,12 @@ export default {
           .replace(/src="[^"]*"/, `src="${imageUrl}"`)
       }
       return chat.message
+    },
+    openCanvas (e) {
+      if (e.messagetype === 'canvas') {
+        alert('Canvas를 여는 코드를 여기에 작성하세요.')
+      }
     }
-  },
-  mounted () {
-    this.updateScroll()
-  },
-  updated () {
-    this.updateScroll()
   }
 }
 </script>

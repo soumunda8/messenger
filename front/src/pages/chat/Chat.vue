@@ -4,7 +4,7 @@
     <div id="right">
       <div class="content chat">
         <input type="hidden" v-model="enterId" />
-        <drawing-form ref="drawingForm" v-show="showCanvas" @toggle-canvas="toggleCanvas" />
+        <drawing-form ref="drawingForm" v-show="showCanvas" @toggle-canvas="toggleCanvas" @canvas-prepared="sendCanvas" />
         <chatting-list :chatList="chatList" />
         <chatting-form ref="chattingForm" @toggle-canvas="toggleCanvas" @submitChat="submitChat" @file-prepared="sendFile" :uploadStatus="uploadStatus" />
       </div>
@@ -35,7 +35,9 @@ export default {
       enterId: '',
       chatList: [],
       uploadStatus: null,
-      showCanvas: false
+      showCanvas: false,
+      apiUrl: process.env.VUE_APP_URL,
+      apiPort: process.env.VUE_SERVER_PORT
     }
   },
   mounted () {
@@ -59,7 +61,7 @@ export default {
     },
     connect () {
       const roomid = this.$route.params.roomId
-      const socket = new SockJS('http://localhost:8086/ws-stomp')
+      const socket = new SockJS(`${this.apiUrl}:${this.apiPort}/ws-stomp`)
       this.stompClient = Stomp.over(socket)
       this.stompClient.debug = null
 
@@ -106,6 +108,21 @@ export default {
       }).catch(error => {
         console.error('Error uploading file : ', error.response.data)
       })
+    },
+    sendCanvas (canvasData) {
+      // console.log(canvasData.imageUrl)
+      const formData = new FormData()
+      formData.append('roomId', this.$route.params.roomId)
+      formData.append('enterId', this.enterId)
+      formData.append('userId', this.$session.get('userId'))
+      formData.append('userNm', this.$session.get('userNm'))
+      formData.append('imageUrl', canvasData.imageUrl)
+      api.post('/chat/sendDraw', formData)
+        .then(res => {
+          this.toggleCanvas()
+        }).catch(error => {
+          console.error('Error uploading file : ', error.response.data)
+        })
     },
     toggleCanvas () {
       this.showCanvas = !this.showCanvas // 캔버스 표시 상태를 토글합니다.

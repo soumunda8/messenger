@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Base64;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -104,9 +108,9 @@ public class ChatCtrl {
 
             String realPath = "C:\\Uploads" + File.separator;
 
-            String dateFolder = userId + File.separator + roomId;
+            String roomFolder = userId + File.separator + roomId;
 
-            File uploadPath = new File(realPath, dateFolder);
+            File uploadPath = new File(realPath, roomFolder);
             if(!uploadPath.exists()) {
                 uploadPath.mkdirs();
             }
@@ -119,7 +123,7 @@ public class ChatCtrl {
 
             FileDTO fileDTO = new FileDTO();
             fileDTO.setId(fid);
-            fileDTO.setSaveFolder(dateFolder);
+            fileDTO.setSaveFolder(roomFolder);
 
             String fileType = uploadFiles.getContentType();
             String[] fileTypeArr = fileType.split("/");
@@ -146,6 +150,58 @@ public class ChatCtrl {
             chatService.webMessage(userId, userNm, roomId, message, messageType);
 
             return true;
+
+        }
+
+        return false;
+
+    }
+
+    @PostMapping("/chat/sendDraw")
+    public boolean sendDraw(@RequestParam("roomId") int roomId, @RequestParam("enterId") int enterId, @RequestParam("userId") String userId, @RequestParam("userNm") String userNm, @RequestParam("imageUrl") String imageUrl, HttpServletRequest request) throws Exception {
+
+        if(imageUrl != null) {
+
+            try {
+
+                String[] parts = imageUrl.split(",");
+                String imageString = parts[1];
+                byte[] imageBytes = Base64.getDecoder().decode(imageString);
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
+                Date date = new Date();
+                String dateFormat = sdf.format(date);
+
+                UUID uuid = UUID.randomUUID();
+                String fid = uuid.toString();
+                String fileName = fid + "_" + dateFormat + ".png";
+
+                String realPath = "C:\\Uploads" + File.separator;
+                String roomFolder = "drawing" + File.separator + roomId;
+
+                String uploadPath = realPath + File.separator + roomFolder + File.separator + fileName;
+
+                FileDTO fileDTO = new FileDTO();
+                fileDTO.setId(fid);
+                fileDTO.setSaveFolder(roomFolder);
+                fileDTO.setFileType("canvas");
+                fileDTO.setOriginName(fileName);
+                fileDTO.setSaveName(fileName);
+                chatService.saveFileInfo(fileDTO);
+
+                FileUtils.writeByteArrayToFile(new File(uploadPath), imageBytes);
+
+                String innerMessage = "<img src='/util/upload/drawing" + File.separator + roomId + File.separator + fileName + "' />";
+                String message = "<div @click='openCanvas(" + fid + ")'>" + innerMessage + "</div>";
+                String messageType = "canvas";
+
+                producer.send(topicNm, enterId, message, messageType);
+                chatService.webMessage(userId, userNm, roomId, message, messageType);
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
 
         }
 

@@ -20,7 +20,7 @@
             </li>
         </ul>
         <ul class="controlBtn bottom right">
-            <li><button @click="saveCanvasAsImage">전송</button></li>
+            <li><button @click="sendCanvas">전송</button></li>
             <li><button @click="closeCanvas">종료</button></li>
         </ul>
     </div>
@@ -147,7 +147,7 @@ export default {
     removeAll () {
       this.context.clearRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height)
     },
-    saveCanvasAsImage () {
+    sendCanvas () {
       const canvas = this.$refs.canvas
       if (!canvas) return
       // 이미지 URL 생성
@@ -156,7 +156,8 @@ export default {
       const link = document.createElement('a')
       link.download = 'canvas-image.png' // 다운로드될 파일명
       link.href = imageUrl
-      link.click() // 링크 클릭 시 다운로드
+      // link.click() // 링크 클릭 시 다운로드
+      this.$emit('canvas-prepared', { imageUrl })
     }
   },
   watch: {
