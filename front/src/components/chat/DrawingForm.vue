@@ -1,6 +1,8 @@
 <template>
     <div id="canvasArea" ref="canvasArea">
-        <canvas ref="canvas" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing" @mouseleave="stopDrawing"></canvas>
+        <div>
+          <canvas ref="canvas" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing" @mouseleave="stopDrawing"></canvas>
+        </div>
         <ul class="controlBtn bottom left">
             <li><button :class="{ active: drawMode === 'line' }" @click="setDrawMode('line')">선</button></li>
             <li>
@@ -68,6 +70,18 @@ export default {
         canvas.height = this.$el.clientHeight
         this.initCanvas()
       }
+    },
+    setCanvasBackground (imgSrc) {
+      const canvas = this.$refs.canvas
+      if (!canvas) return
+      this.initCanvas()
+      const context = canvas.getContext('2d')
+      const image = new Image()
+      image.onload = () => {
+        context.clearRect(0, 0, canvas.width, canvas.height)
+        context.drawImage(image, 0, 0, canvas.width, canvas.height)
+      }
+      image.src = imgSrc
     },
     initCanvas () {
       const canvas = this.$refs.canvas
@@ -185,9 +199,11 @@ export default {
   z-index: 10;
 }
 
-canvas {
+#canvasArea > div {
   background-color: rgba(255, 255, 255, 0.8);
   cursor: crosshair;
+  width: 100%;
+  height: 100%;
 }
 
 .bottom {

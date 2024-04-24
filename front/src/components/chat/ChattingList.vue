@@ -6,18 +6,31 @@
           {{chat.message}}
         </div>
         <div v-else-if="chat.senderid === currentUserId">
-          <div :class="{'right': true, ' file': chat.messagetype === 'upload'}">
-            <div class="chat" v-html="processMessage(chat)"></div>
+          <div :class="{'right': true, ' file': chat.messagetype === 'upload' || chat.messagetype === 'upload_img'}">
+            <div class="chat">
+              <div v-if="chat.messagetype === 'canvas'">
+                <img :src="getImageSrc(chat)" @click="openCanvas(chat)" />
+              </div>
+              <div v-else v-html="processMessage(chat)"></div>
+            </div>
             <div class="thumbnail"></div>
           </div>
         </div>
         <div v-else-if="chat.senderid != currentUserId">
-          <div :class="{'left': true, ' file': chat.messagetype === 'upload'}">
+          <div :class="{'left': true, ' file': chat.messagetype === 'upload' || chat.messagetype === 'upload_img'}">
             <div class='sender'>
               <div class='thumbnail'></div>
               <p class='senderName'>{{chat.sendernm}}</p>
             </div>
-            <div class="chat" v-html="processMessage(chat)"></div>
+            <div class="chat">
+              <div v-if="chat.messagetype === 'upload' || chat.messagetype === 'upload_img'" v-html="processMessage(chat)"></div>
+              <div v-else-if="chat.messagetype === 'canvas'">
+                <img :src="getImageSrc(chat)" @click="openCanvas(chat)" />
+              </div>
+              <div v-else>
+                {{chat.message}}
+              </div>
+            </div>
           </div>
         </div>
       </li>
@@ -54,19 +67,25 @@ export default {
       })
     },
     processMessage (chat) {
-      if (chat.messagetype === 'upload') {
-        let downloadUrl = `/util/download?id=${chat.id}`
-        let imageUrl = `/util/upload/${chat.userid}/${chat.roomid}/${chat.filenm}.png`
-        return chat.message
-          .replace(/href="[^"]*"/, `href="${downloadUrl}"`)
-          .replace(/src="[^"]*"/, `src="${imageUrl}"`)
+      let innerMsg = ''
+      if (chat.messagetype === 'upload' || chat.messagetype === 'upload_img') {
+        innerMsg = `<a href='/util/download?id=${chat.fid}' download>`
+        if (chat.messagetype === 'upload') {
+          innerMsg += chat.message
+        } else {
+          innerMsg += `<img src='/util/upload/${chat.senderid}/${chat.roomid}/${chat.message}' />`
+        }
+        innerMsg += '</a>'
+      } else {
+        innerMsg = chat.message
       }
-      return chat.message
+      return innerMsg
     },
-    openCanvas (e) {
-      if (e.messagetype === 'canvas') {
-        alert('Canvas를 여는 코드를 여기에 작성하세요.')
-      }
+    getImageSrc (chat) {
+      return `/util/upload/drawing/${chat.roomid}/${chat.message}`
+    },
+    openCanvas (chat) {
+      this.$emit('toggle-canvas', this.getImageSrc(chat))
     }
   }
 }

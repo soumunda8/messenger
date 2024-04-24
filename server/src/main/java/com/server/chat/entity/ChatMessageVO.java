@@ -17,7 +17,9 @@ public class ChatMessageVO {
     private String senddate;
     private String message;
     private int roomid;
+    private String fid;
     private String roomnm;
+    private boolean roomStatus;
     private String messagetype;
     private int chatoffset;
 

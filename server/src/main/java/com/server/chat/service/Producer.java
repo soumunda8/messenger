@@ -19,7 +19,7 @@ public class Producer {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void send(String topic, int enterId, String message, String messageType) {
+    public void send(String topic, int enterId, String message, String messageType, String fid) {
 
         Date date = new Date();
         Timestamp now = new Timestamp(date.getTime());
@@ -30,6 +30,7 @@ public class Producer {
         fields.put(new JSONObject().put("type", "int64").put("optional", false).put("name", "org.apache.kafka.connect.data.Timestamp").put("version", 1).put("field", "senddate"));
         fields.put(new JSONObject().put("type", "string").put("optional", false).put("field", "message"));
         fields.put(new JSONObject().put("type", "string").put("optional", false).put("field", "messagetype"));
+        fields.put(new JSONObject().put("type", "string").put("optional", false).put("field", "fid"));
 
         JSONObject valueSchema = new JSONObject();
         valueSchema.put("type", "struct");
@@ -42,6 +43,7 @@ public class Producer {
         payload.put("senddate", timestampAsLong);
         payload.put("message", message);
         payload.put("messagetype", messageType);
+        payload.put("fid", fid);
 
         JSONObject value = new JSONObject();
         value.put("schema", valueSchema);

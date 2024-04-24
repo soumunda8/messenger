@@ -7,7 +7,7 @@
     </select>
 
     <select id="getUserChatRoom" resultType="com.server.chat.entity.UserChatVO">
-        SELECT ec.id as id, ec.roomid as roomid, c.roomnm as roomnm, ec.userid as userid, ec.status as status, ec.chatoffset as chatoffset, c.resdate as resdate FROM enterchat ec LEFT JOIN chatroom c ON ec.roomid = c.id WHERE userid = #{userid} and status IS true
+        SELECT ec.id as id, ec.roomid as roomid, c.roomnm as roomnm, ec.userid as userid, ec.status as status, ec.chatoffset as chatoffset, c.resdate as resdate FROM enterchat ec LEFT JOIN chatroom c ON ec.roomid = c.id WHERE userid = #{userid} and ec.status IS true
     </select>
 
     <select id="getEnterChatInfo" resultType="com.server.chat.entity.EnterChatDAO">
@@ -34,7 +34,7 @@
         UPDATE enterchat SET status = false WHERE id = #{enterId}
     </update>
 
-    <insert id="updateRoomStatus">
+    <insert id="updateEnterRoomStatus">
         UPDATE enterchat SET status = true, chatoffset = #{offsetNum} WHERE id = #{enterId}
     </insert>
 
@@ -42,9 +42,17 @@
         select * from enterchat where id = #{enterId}
     </select>
 
+    <select id="getEnterRoomStatus" resultType="com.server.chat.entity.EnterChatDAO">
+        select * from enterchat where roomid = #{roomid} and status = true
+    </select>
+
     <insert id="createRoom" parameterType="com.server.chat.entity.ChatRoomDAO" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO chatroom (roomnm, resdate) values(#{roomnm}, current_timestamp)
     </insert>
+
+    <update id="updateRoomStatus">
+        UPDATE chatroom SET status = false WHERE id = #{id}
+    </update>
 
     <insert id="saveFileInfo">
         INSERT INTO fileinfo values(#{id}, #{saveFolder}, #{originName}, #{saveName}, #{fileType}, current_timestamp)

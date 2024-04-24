@@ -78,9 +78,10 @@ public class ChatCtrl {
         String message = chatMessageVO.getSendernm() + " 님이 퇴장했습니다.";
         String messageType = "out";
 
-        producer.send(topicNm, enterId, message, messageType);
+        producer.send(topicNm, enterId, message, messageType, "-");
 
         return true;
+
 
     }
 
@@ -93,8 +94,8 @@ public class ChatCtrl {
         String userId = chatMessageVO.getSenderid();
         String userNm = chatMessageVO.getSendernm();
         try {
-            producer.send(topicNm, enterId, message, messageType);
-            chatService.webMessage(userId, userNm, roomId, message, messageType);
+            producer.send(topicNm, enterId, message, messageType, "-");
+            chatService.webMessage(userId, userNm, roomId, null, message, messageType);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error sending message");
@@ -135,6 +136,7 @@ public class ChatCtrl {
             uploadFiles.transferTo(new File(uploadPath, uploadFilename));     // 서버에 파일 업로드 수행
             chatService.saveFileInfo(fileDTO);
 
+            /*
             String message = "";
             String innerMessage = "";
             if(fileTypeArr[0].equals("image")) {
@@ -145,9 +147,24 @@ public class ChatCtrl {
 
             message = "<a href='/util/download?id=" + fid + "' download>" + innerMessage + "</a>";
             String messageType = "upload";
+            */
 
-            producer.send(topicNm, enterId, message, messageType);
-            chatService.webMessage(userId, userNm, roomId, message, messageType);
+            String message = "";
+            String innerMessage = "";
+            String messageType = "";
+            if(fileTypeArr[0].equals("image")) {
+                messageType = "upload_img";
+                message = uploadFilename;
+            } else {
+                messageType = "upload";
+                message = originalFilename;
+            }
+
+            //message = "<a href='/util/download?id=" + fid + "' download>" + innerMessage + "</a>";
+
+
+            producer.send(topicNm, enterId, message, messageType, fid);
+            chatService.webMessage(userId, userNm, roomId, fid, message, messageType);
 
             return true;
 
@@ -191,12 +208,10 @@ public class ChatCtrl {
 
                 FileUtils.writeByteArrayToFile(new File(uploadPath), imageBytes);
 
-                String innerMessage = "<img src='/util/upload/drawing" + File.separator + roomId + File.separator + fileName + "' />";
-                String message = "<div @click='openCanvas(" + fid + ")'>" + innerMessage + "</div>";
                 String messageType = "canvas";
 
-                producer.send(topicNm, enterId, message, messageType);
-                chatService.webMessage(userId, userNm, roomId, message, messageType);
+                producer.send(topicNm, enterId, fileName, messageType, fid);
+                chatService.webMessage(userId, userNm, roomId, fid, fileName, messageType);
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -215,6 +230,12 @@ public class ChatCtrl {
         String userNm = chatMessageVO.getSendernm();
         int roomId = chatMessageVO.getRoomid();
 
+        ChatRoomDAO chatRoomDAO = chatService.getChatRoomInfo(roomId);
+
+        if(!chatRoomDAO.isStatus()) {
+            return false;
+        }
+
         EnterChatDAO checkUserDAO = chatService.checkUserEnterRoom(userId, roomId);
 
         if(checkUserDAO == null) {
@@ -231,7 +252,7 @@ public class ChatCtrl {
             chatService.enterRoom(insertEnterDAO);
 
         } else if(!checkUserDAO.isStatus()) {
-            chatService.updateRoomStatus(checkUserDAO.getId(), chatService.getChatLastNum(roomId) + 1);
+            chatService.updateEnterRoomStatus(checkUserDAO.getId(), chatService.getChatLastNum(roomId) + 1);
         }
 
         EnterChatDAO userInfo = chatService.getEnterChatInfo(roomId, userId);
@@ -239,8 +260,8 @@ public class ChatCtrl {
         String message = userNm + " 님이 입장했습니다.";
         String messageType = "enter";
 
-        producer.send(topicNm, userInfo.getId(), message, messageType);
-        chatService.webMessage(userId, userNm, roomId, message, messageType);
+        producer.send(topicNm, userInfo.getId(), message, messageType, "-");
+        chatService.webMessage(userId, userNm, roomId, null, message, messageType);
 
         return true;
 

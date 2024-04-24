@@ -16,5 +16,6 @@ public class UserChatVO {
     private boolean status;
     private int chatoffset;
     private String resdate;
+    private boolean roomstatus;
 
 }

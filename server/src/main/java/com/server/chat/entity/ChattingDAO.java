@@ -14,5 +14,6 @@ public class ChattingDAO {
     private String senddate;
     private String message;
     private String messagetype;
+    private String fid;
 
 }

@@ -23,7 +23,11 @@ export default {
       const sendernm = this.$session.get('userNm')
       api.post('/enterRoom', {roomid, senderid, sendernm})
         .then(res => {
-          this.$router.push({name: 'Chat', params: { roomId: roomid }})
+          if (res.data) {
+            this.$router.push({name: 'Chat', params: { roomId: roomid }})
+          } else {
+            alert('잘못된 코드입니다.\n다시 확인해주세요')
+          }
         })
     }
   }

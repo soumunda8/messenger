@@ -5,7 +5,7 @@
       <div class="content chat">
         <input type="hidden" v-model="enterId" />
         <drawing-form ref="drawingForm" v-show="showCanvas" @toggle-canvas="toggleCanvas" @canvas-prepared="sendCanvas" />
-        <chatting-list :chatList="chatList" />
+        <chatting-list :chatList="chatList" @toggle-canvas="toggleCanvas" />
         <chatting-form ref="chattingForm" @toggle-canvas="toggleCanvas" @submitChat="submitChat" @file-prepared="sendFile" :uploadStatus="uploadStatus" />
       </div>
     </div>
@@ -37,7 +37,8 @@ export default {
       uploadStatus: null,
       showCanvas: false,
       apiUrl: process.env.VUE_APP_URL,
-      apiPort: process.env.VUE_SERVER_PORT
+      apiPort: process.env.VUE_SERVER_PORT,
+      canvasBackgroundImage: ''
     }
   },
   mounted () {
@@ -110,7 +111,6 @@ export default {
       })
     },
     sendCanvas (canvasData) {
-      // console.log(canvasData.imageUrl)
       const formData = new FormData()
       formData.append('roomId', this.$route.params.roomId)
       formData.append('enterId', this.enterId)
@@ -124,13 +124,15 @@ export default {
           console.error('Error uploading file : ', error.response.data)
         })
     },
-    toggleCanvas () {
-      this.showCanvas = !this.showCanvas // 캔버스 표시 상태를 토글합니다.
-      // showCanvas 상태에 따라 drawingForm 컴포넌트의 메소드를 호출합니다.
+    toggleCanvas (imgSrc) {
+      this.showCanvas = !this.showCanvas
       if (this.showCanvas) {
         this.$nextTick(() => {
           if (this.$refs.drawingForm) {
             this.$refs.drawingForm.updateCanvasSize()
+            if (imgSrc) {
+              this.$refs.drawingForm.setCanvasBackground(imgSrc)
+            }
           }
         })
       }

@@ -54,11 +54,16 @@ public class ChatServiceImpl implements ChatService {
     @Override
     public void outRoom(int enterId) throws Exception {
         chatMapper.outRoom(enterId);
+        EnterChatDAO enterChat = chatMapper.getEnterInfo(enterId);
+        List<EnterChatDAO> enterChatList = chatMapper.getEnterRoomStatus(enterChat.getRoomid());
+        if(enterChatList.isEmpty()){
+            chatMapper.updateRoomStatus(enterChat.getRoomid());
+        }
     }
 
     @Override
-    public void updateRoomStatus(int enterId, int offsetNum) throws Exception {
-        chatMapper.updateRoomStatus(enterId, offsetNum);
+    public void updateEnterRoomStatus(int enterId, int offsetNum) throws Exception {
+        chatMapper.updateEnterRoomStatus(enterId, offsetNum);
     }
 
     @Override
@@ -81,16 +86,23 @@ public class ChatServiceImpl implements ChatService {
         return chatMapper.getFileInfo(id);
     }
 
-    public void webMessage(String userId, String userNm, int roomId, String message, String messageType) throws Exception {
+    @Override
+    public ChatRoomDAO getChatRoomInfo(int id) throws Exception {
+        return chatMapper.getChatRoomInfo(id);
+    }
+
+    public void webMessage(String userId, String userNm, int roomId, String fid, String message, String messageType) throws Exception {
 
         ChatMessageVO chatVO = new ChatMessageVO();
         chatVO.setSendernm(userNm);
         chatVO.setSenderid(userId);
         chatVO.setMessage(message);
+        chatVO.setFid(fid);
         chatVO.setRoomid(roomId);
         chatVO.setMessagetype(messageType);
 
         msgOperation.convertAndSend("/chat/" + roomId, chatVO);
 
     }
+
 }

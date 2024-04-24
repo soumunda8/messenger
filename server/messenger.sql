@@ -7,7 +7,8 @@ create table userinfo(
 create table chatroom(
     id serial primary key,                          -- 방 번호
     roomnm varchar(100),				            -- 방 이름
-    resdate timestamp default current_timestamp		-- 방 생성일
+    resdate timestamp default current_timestamp,	-- 방 생성일
+    status boolean default true					-- 채팅방 상태
 );
 
 create table enterchat(
@@ -23,7 +24,8 @@ create table chatting(
     enterid integer not null,                       -- 채팅 참여 번호
     senddate timestamp default current_timestamp,	-- 채팅 보낸 일정
     message text not null,							-- 채팅 내용
-    messagetype varchar(100) not null				-- 채팅 타입 [ text - 메세지, upload - 파일, create, ... ]
+    messagetype varchar(100) not null,				-- 채팅 타입 [ text - 메세지, upload - 파일, create, ... ]
+    fid varchar(100)                                -- 채팅 파일 아이디
 );
 
 create table fileinfo(
@@ -43,7 +45,9 @@ create view chatMessage as (
         c.senddate as senddate,
         c.message as message,
         cr.id as roomid,
+        c.fid as fid,
         cr.roomnm as roomnm,
+        cr.status as roomStatus,
         c.messagetype as messagetype,
         e.chatoffset as chatoffset
     from
