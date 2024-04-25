@@ -1,15 +1,15 @@
 <template>
   <div id="chatArea" ref="chattingDiv">
-    <ul>
+    <ul ref="chattingtdd">
       <li v-for="(chat, index) in chatList" :key="index">
         <div v-if="chat.messagetype === 'enter' || chat.messagetype === 'out' || chat.messagetype === 'create'" class="center">
           {{chat.message}}
         </div>
         <div v-else-if="chat.senderid === currentUserId">
-          <div :class="{'right': true, ' file': chat.messagetype === 'upload' || chat.messagetype === 'upload_img'}">
+          <div :class="{'right': true, 'file': chat.messagetype === 'upload' || chat.messagetype === 'upload_img'}">
             <div class="chat">
               <div v-if="chat.messagetype === 'canvas'">
-                <img :src="getImageSrc(chat)" @click="openCanvas(chat)" />
+                <img :class="chat-image" :src="getImageSrc(chat)" @click="openCanvas(chat)" @load="updateScroll" />
               </div>
               <div v-else v-html="processMessage(chat)"></div>
             </div>
@@ -17,7 +17,7 @@
           </div>
         </div>
         <div v-else-if="chat.senderid != currentUserId">
-          <div :class="{'left': true, ' file': chat.messagetype === 'upload' || chat.messagetype === 'upload_img'}">
+          <div :class="{'left': true, 'file': chat.messagetype === 'upload' || chat.messagetype === 'upload_img'}">
             <div class='sender'>
               <div class='thumbnail'></div>
               <p class='senderName'>{{chat.sendernm}}</p>
@@ -25,7 +25,7 @@
             <div class="chat">
               <div v-if="chat.messagetype === 'upload' || chat.messagetype === 'upload_img'" v-html="processMessage(chat)"></div>
               <div v-else-if="chat.messagetype === 'canvas'">
-                <img :src="getImageSrc(chat)" @click="openCanvas(chat)" />
+                <img :class="chat-image" :src="getImageSrc(chat)" @click="openCanvas(chat)" @load="updateScroll" />
               </div>
               <div v-else>
                 {{chat.message}}
@@ -51,10 +51,8 @@ export default {
       return this.$session.get('userId')
     }
   },
-  mounted () {
-    this.updateScroll()
-  },
   updated () {
+    this.updateImageLoad()
     this.updateScroll()
   },
   methods: {
@@ -73,7 +71,7 @@ export default {
         if (chat.messagetype === 'upload') {
           innerMsg += chat.message
         } else {
-          innerMsg += `<img src='/util/upload/${chat.senderid}/${chat.roomid}/${chat.message}' />`
+          innerMsg += `<img class='chat-image' src='/util/upload/${chat.senderid}/${chat.roomid}/${chat.message}' />`
         }
         innerMsg += '</a>'
       } else {
@@ -86,6 +84,14 @@ export default {
     },
     openCanvas (chat) {
       this.$emit('toggle-canvas', this.getImageSrc(chat))
+    },
+    updateImageLoad () {
+      const images = this.$el.querySelectorAll('.chat-image')
+      images.forEach(image => {
+        image.onload = () => {
+          this.updateScroll()
+        }
+      })
     }
   }
 }

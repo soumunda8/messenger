@@ -3,7 +3,7 @@
     <file-send-form ref="fileSendForm" @toggle-canvas="relayEvent" @file-prepared="handleFilePrepared" :uploadStatus="uploadStatus"/>
     <div class="chatting_form">
       <label for="chatInput">
-        <textarea id="chatInput" v-model="message" @keyup.enter.up="submitChat"></textarea>
+        <textarea id="chatInput" v-model="message" @keydown.enter.prevent="submitEnterChat"></textarea>
       </label>
       <div class="btn_input_area">
         <button type="button" class="moreBtn" @click="fileUploadBtn">+</button>
@@ -40,6 +40,12 @@ export default {
         return
       }
       this.$emit('submitChat', {message})
+    },
+    submitEnterChat () {
+      const message = this.message
+      if (message !== '') {
+        this.submitChat()
+      }
     },
     clearMessage () {
       this.message = ''

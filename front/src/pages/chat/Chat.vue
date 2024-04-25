@@ -5,7 +5,7 @@
       <div class="content chat">
         <input type="hidden" v-model="enterId" />
         <drawing-form ref="drawingForm" v-show="showCanvas" @toggle-canvas="toggleCanvas" @canvas-prepared="sendCanvas" />
-        <chatting-list :chatList="chatList" @toggle-canvas="toggleCanvas" />
+        <chatting-list v-bind:chatList="chatList" @toggle-canvas="toggleCanvas" />
         <chatting-form ref="chattingForm" @toggle-canvas="toggleCanvas" @submitChat="submitChat" @file-prepared="sendFile" :uploadStatus="uploadStatus" />
       </div>
     </div>

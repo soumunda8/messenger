@@ -41,6 +41,7 @@
 #right #roadChat {text-align:center;display:inline-block;margin:0 auto;padding:10px 20px;border:1px solid #333;border-radius:20px;margin-bottom:20px;}
 #right #chatArea {overflow-y:scroll;height:calc(100% - 200px);margin-bottom:40px;padding:0 50px}
 #right #chatArea > ul > li {margin-top:20px;padding:5px 0;display:block;display:block;clear:both;content:'';}
+#right #chatArea > ul > li > div::after {content:"";clear:both;display:table;}
 #right #chatArea .thumbnail {width:40px;height:40px;border-radius:50%;background-color:#333;display:inline-block;vertical-align:middle;}
 #right #chatArea .chat {border:1px solid #444;border-radius:5px;display:inline-block;vertical-align:middle;padding:20px 40px;}
 #right #chatArea .chat img {max-width:300px;height:auto;}
