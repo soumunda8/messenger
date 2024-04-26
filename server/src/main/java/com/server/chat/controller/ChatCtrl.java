@@ -1,10 +1,10 @@
 package com.server.chat.controller;
 
-import com.server.chat.entity.*;
+import com.server.chat.domain.*;
 import com.server.chat.service.ChatServiceImpl;
 import com.server.chat.service.Producer;
-import com.server.member.entity.MemberDAO;
-import jakarta.servlet.ServletContext;
+import com.server.file.domain.FileDTO;
+import com.server.member.domain.MemberDAO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -14,8 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

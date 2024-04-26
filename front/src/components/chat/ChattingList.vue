@@ -9,7 +9,7 @@
           <div :class="{'right': true, 'file': chat.messagetype === 'upload' || chat.messagetype === 'upload_img'}">
             <div class="chat">
               <div v-if="chat.messagetype === 'canvas'">
-                <img :class="chat-image" :src="getImageSrc(chat)" @click="openCanvas(chat)" @load="updateScroll" />
+                <img class="chat-image" :src="getImageSrc(chat)" @click="openCanvas(chat)" @load="updateScroll" />
               </div>
               <div v-else v-html="processMessage(chat)"></div>
             </div>
@@ -25,7 +25,7 @@
             <div class="chat">
               <div v-if="chat.messagetype === 'upload' || chat.messagetype === 'upload_img'" v-html="processMessage(chat)"></div>
               <div v-else-if="chat.messagetype === 'canvas'">
-                <img :class="chat-image" :src="getImageSrc(chat)" @click="openCanvas(chat)" @load="updateScroll" />
+                <img class="chat-image" :src="getImageSrc(chat)" @click="openCanvas(chat)" @load="updateScroll" />
               </div>
               <div v-else>
                 {{chat.message}}

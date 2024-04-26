@@ -1,7 +1,7 @@
 package com.server.member.service;
 
-import com.server.member.entity.MemberDAO;
-import com.server.member.persistence.MemberMapper;
+import com.server.member.domain.MemberDAO;
+import com.server.member.repository.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.server.member.persistence;
+package com.server.member.repository;
 
-import com.server.member.entity.MemberDAO;
+import com.server.member.domain.MemberDAO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -1,4 +1,4 @@
-package com.server.chat.entity;
+package com.server.file.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

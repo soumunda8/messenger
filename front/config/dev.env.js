@@ -4,7 +4,7 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  VUE_APP_URL: '"http://192.168.116.226"',
+  VUE_APP_URL: '"http://192.168.116.97"',
   VUE_CLIENT_PORT: '3000',
   VUE_SERVER_PORT: '8086'
 })

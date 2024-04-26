@@ -1,6 +1,6 @@
 package com.server.member.service;
 
-import com.server.member.entity.MemberDAO;
+import com.server.member.domain.MemberDAO;
 
 public interface MemberService {
 

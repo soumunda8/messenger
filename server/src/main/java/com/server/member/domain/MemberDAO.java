@@ -1,4 +1,4 @@
-package com.server.member.entity;
+package com.server.member.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

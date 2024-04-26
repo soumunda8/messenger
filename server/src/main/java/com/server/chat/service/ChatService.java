@@ -1,6 +1,7 @@
 package com.server.chat.service;
 
-import com.server.chat.entity.*;
+import com.server.chat.domain.*;
+import com.server.file.domain.FileDTO;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.server.chat.entity;
+package com.server.chat.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,11 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatRoomDAO {
+public class EnterChatDAO {
 
     private int id;
-    private String roomnm;
-    private String resdate;
+    private int roomid;
+    private String userid;
     private boolean status;
+    private int chatoffset;
 
 }

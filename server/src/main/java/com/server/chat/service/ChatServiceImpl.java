@@ -1,7 +1,8 @@
 package com.server.chat.service;
 
-import com.server.chat.entity.*;
-import com.server.chat.persistence.ChatMapper;
+import com.server.chat.domain.*;
+import com.server.chat.repository.ChatMapper;
+import com.server.file.domain.FileDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;

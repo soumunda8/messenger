@@ -1,6 +1,7 @@
-package com.server.chat.persistence;
+package com.server.chat.repository;
 
-import com.server.chat.entity.*;
+import com.server.chat.domain.*;
+import com.server.file.domain.FileDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

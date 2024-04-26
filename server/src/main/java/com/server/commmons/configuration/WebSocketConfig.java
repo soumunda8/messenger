@@ -1,4 +1,4 @@
-package com.server.config;
+package com.server.commmons.configuration;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

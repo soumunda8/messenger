@@ -99,7 +99,10 @@ export default {
         .then(res => {
           this.$session.remove('userId')
           this.$session.remove('userNm')
-          this.$router.push({name: 'Login'})
+          this.$router.push({name: 'Main'})
+        })
+        .catch(error => {
+          console.error('Logout failed:', error)
         })
     }
   }
