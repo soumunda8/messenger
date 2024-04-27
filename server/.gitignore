@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+log/
+build.gradle
+src/main/resources/application.properties

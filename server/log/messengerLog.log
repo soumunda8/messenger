@@ -1,0 +1,1031 @@
+2024-04-23 09:05:05.432 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 14952 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 09:05:05.436 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 09:05:05.483 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 09:05:05.484 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 09:05:06.776 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 09:05:06.783 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 09:05:06.786 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 09:05:06.786 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 09:05:06.960 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 09:05:06.967 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 09:05:06.968 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1483 ms
+2024-04-23 09:05:07.805 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 09:05:07.823 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 09:05:07.847 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 09:05:07.848 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 09:05:07.849 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2e4579fd]]
+2024-04-23 09:05:07.849 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 09:05:07.857 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 2.806 seconds (process running for 3.698)
+2024-04-23 09:06:07.827 INFO  [MessageBroker-1] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2024-04-23 09:06:18.446 INFO  [http-nio-8086-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-23 09:06:18.447 INFO  [http-nio-8086-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2024-04-23 09:06:18.449 INFO  [http-nio-8086-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 2 ms
+2024-04-23 09:06:18.879 INFO  [http-nio-8086-exec-2] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2024-04-23 09:06:19.585 INFO  [http-nio-8086-exec-2] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@28e77125
+2024-04-23 09:06:19.590 INFO  [http-nio-8086-exec-2] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2024-04-23 09:17:01.920 WARN  [HikariPool-1 housekeeper] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m12s205ms404µs200ns).
+2024-04-23 09:17:36.418 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 09:17:36.418 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2e4579fd]]
+2024-04-23 09:17:36.419 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 09:17:36.464 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2024-04-23 09:17:36.478 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2024-04-23 09:43:54.146 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 12512 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 09:43:54.149 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 09:43:54.191 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 09:43:54.192 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 09:43:55.523 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 09:43:55.532 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 09:43:55.534 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 09:43:55.534 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 09:43:55.725 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 09:43:55.735 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 09:43:55.736 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1544 ms
+2024-04-23 09:43:56.600 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 09:43:56.624 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 09:43:56.652 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 09:43:56.653 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 09:43:56.655 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@9064bb5]]
+2024-04-23 09:43:56.655 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 09:43:56.664 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 2.935 seconds (process running for 3.875)
+2024-04-23 09:44:46.489 INFO  [http-nio-8086-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-23 09:44:46.491 INFO  [http-nio-8086-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2024-04-23 09:44:46.495 INFO  [http-nio-8086-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 3 ms
+2024-04-23 09:44:46.870 INFO  [http-nio-8086-exec-2] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2024-04-23 09:44:47.451 INFO  [http-nio-8086-exec-2] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7e1a5b6a
+2024-04-23 09:44:47.455 INFO  [http-nio-8086-exec-2] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2024-04-23 09:44:56.622 INFO  [MessageBroker-1] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2024-04-23 09:45:12.143 INFO  [http-nio-8086-exec-7] [o.a.k.clients.producer.ProducerConfig] - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [192.168.56.101:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2024-04-23 09:45:12.220 INFO  [http-nio-8086-exec-7] [o.a.kafka.clients.producer.KafkaProducer] - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2024-04-23 09:45:12.343 INFO  [http-nio-8086-exec-7] [o.a.kafka.common.utils.AppInfoParser] - Kafka version: 3.4.1
+2024-04-23 09:45:12.344 INFO  [http-nio-8086-exec-7] [o.a.kafka.common.utils.AppInfoParser] - Kafka commitId: 8a516edc2755df89
+2024-04-23 09:45:12.344 INFO  [http-nio-8086-exec-7] [o.a.kafka.common.utils.AppInfoParser] - Kafka startTimeMs: 1713833112336
+2024-04-23 09:45:13.457 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.Metadata] - [Producer clientId=producer-1] Resetting the last seen epoch of partition message_chatting-0 to 0 since the associated topicId changed from null to tV19cMTURACtFF6sTYp7MQ
+2024-04-23 09:45:13.460 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.Metadata] - [Producer clientId=producer-1] Cluster ID: iKRNEF8bSNu85OjTJBF-yw
+2024-04-23 09:45:13.486 INFO  [kafka-producer-network-thread | producer-1] [o.a.k.c.p.internals.TransactionManager] - [Producer clientId=producer-1] ProducerId set to 2000 with epoch 0
+2024-04-23 09:54:38.099 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.NetworkClient] - [Producer clientId=producer-1] Node -1 disconnected.
+2024-04-23 09:57:17.993 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 09:57:17.994 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@9064bb5]]
+2024-04-23 09:57:17.994 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 09:57:18.017 INFO  [SpringApplicationShutdownHook] [o.a.kafka.clients.producer.KafkaProducer] - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2024-04-23 09:57:18.021 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Metrics scheduler closed
+2024-04-23 09:57:18.021 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-23 09:57:18.021 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Metrics reporters closed
+2024-04-23 09:57:18.022 INFO  [SpringApplicationShutdownHook] [o.a.kafka.common.utils.AppInfoParser] - App info kafka.producer for producer-1 unregistered
+2024-04-23 09:57:18.027 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2024-04-23 09:57:18.048 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2024-04-23 09:57:22.594 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 14264 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 09:57:22.595 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 09:57:22.639 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 09:57:22.639 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 09:57:23.753 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 09:57:23.762 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 09:57:23.764 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 09:57:23.764 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 09:57:23.935 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 09:57:23.942 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 09:57:23.942 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1302 ms
+2024-04-23 09:57:24.666 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 09:57:24.684 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 09:57:24.708 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 09:57:24.709 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 09:57:24.711 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7ee9a939]]
+2024-04-23 09:57:24.711 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 09:57:24.719 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 2.419 seconds (process running for 3.158)
+2024-04-23 09:58:24.681 INFO  [MessageBroker-1] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2024-04-23 09:58:49.018 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 09:58:49.018 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7ee9a939]]
+2024-04-23 09:58:49.018 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 09:58:52.267 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 16136 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 09:58:52.269 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 09:58:52.311 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 09:58:52.311 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 09:58:53.376 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 09:58:53.383 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 09:58:53.385 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 09:58:53.385 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 09:58:53.562 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 09:58:53.568 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 09:58:53.568 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1257 ms
+2024-04-23 09:58:54.281 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 09:58:54.300 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 09:58:54.323 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 09:58:54.325 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 09:58:54.326 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4d6d4495]]
+2024-04-23 09:58:54.326 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 09:58:54.334 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 2.394 seconds (process running for 3.059)
+2024-04-23 09:59:54.303 INFO  [MessageBroker-1] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2024-04-23 10:00:26.980 INFO  [http-nio-8086-exec-4] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-23 10:00:26.981 INFO  [http-nio-8086-exec-4] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2024-04-23 10:00:26.985 INFO  [http-nio-8086-exec-4] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 3 ms
+2024-04-23 10:00:27.338 INFO  [http-nio-8086-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2024-04-23 10:00:27.790 INFO  [http-nio-8086-exec-5] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@62556c2b
+2024-04-23 10:00:27.792 INFO  [http-nio-8086-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2024-04-23 10:02:32.218 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 10:02:32.218 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4d6d4495]]
+2024-04-23 10:02:32.219 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 10:02:32.245 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2024-04-23 10:02:32.267 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2024-04-23 10:02:35.654 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 11384 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 10:02:35.656 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 10:02:35.705 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 10:02:35.706 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 10:02:36.776 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 10:02:36.783 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 10:02:36.785 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 10:02:36.786 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 10:02:36.952 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 10:02:36.958 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 10:02:36.959 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1253 ms
+2024-04-23 10:02:37.669 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 10:02:37.690 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 10:02:37.713 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 10:02:37.715 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 10:02:37.716 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6935b925]]
+2024-04-23 10:02:37.717 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 10:02:37.725 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 2.38 seconds (process running for 3.057)
+2024-04-23 10:02:45.699 INFO  [http-nio-8086-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-23 10:02:45.699 INFO  [http-nio-8086-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2024-04-23 10:02:45.700 INFO  [http-nio-8086-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2024-04-23 10:02:45.806 INFO  [http-nio-8086-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2024-04-23 10:02:46.004 INFO  [http-nio-8086-exec-5] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@372bfdf1
+2024-04-23 10:02:46.006 INFO  [http-nio-8086-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2024-04-23 10:03:37.685 INFO  [MessageBroker-1] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2024-04-23 10:14:11.659 WARN  [HikariPool-1 housekeeper] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m55s544ms270µs).
+2024-04-23 10:37:49.449 WARN  [HikariPool-1 housekeeper] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m7s787ms314µs500ns).
+2024-04-23 10:54:18.204 WARN  [HikariPool-1 housekeeper] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m58s749ms319µs700ns).
+2024-04-23 11:09:25.948 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 11:09:25.949 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6935b925]]
+2024-04-23 11:09:25.949 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 11:09:25.970 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2024-04-23 11:09:29.129 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2024-04-23 17:56:28.672 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 17956 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 17:56:28.675 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 17:56:28.732 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 17:56:28.732 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 17:56:30.097 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 17:56:30.106 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 17:56:30.109 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 17:56:30.109 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 17:56:30.278 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 17:56:30.285 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 17:56:30.286 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1554 ms
+2024-04-23 17:56:31.214 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 17:56:31.234 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 17:56:31.264 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 17:56:31.266 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 17:56:31.267 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@392310f7]]
+2024-04-23 17:56:31.267 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 17:56:31.276 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 3.022 seconds (process running for 3.839)
+2024-04-23 17:57:31.242 INFO  [MessageBroker-1] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2024-04-23 17:59:11.998 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 17:59:11.999 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@392310f7]]
+2024-04-23 17:59:11.999 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 17:59:14.696 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 7708 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 17:59:14.699 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 17:59:14.755 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 17:59:14.755 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 17:59:15.951 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 17:59:15.958 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 17:59:15.959 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 17:59:15.960 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 17:59:16.121 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 17:59:16.129 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 17:59:16.129 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1374 ms
+2024-04-23 17:59:17.104 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 17:59:17.129 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 17:59:17.160 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 17:59:17.163 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 17:59:17.164 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@733addff]]
+2024-04-23 17:59:17.165 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 17:59:17.176 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 2.809 seconds (process running for 3.555)
+2024-04-23 18:00:17.129 INFO  [MessageBroker-1] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2024-04-23 18:00:29.612 INFO  [File Watcher] [o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)
+2024-04-23 18:00:29.616 INFO  [Thread-5] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 18:00:29.616 INFO  [Thread-5] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@733addff]]
+2024-04-23 18:00:29.616 INFO  [Thread-5] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 18:00:29.629 INFO  [Thread-5] [o.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:00:29.629 INFO  [Thread-5] [o.apache.catalina.core.StandardService] - Stopping service [Tomcat]
+2024-04-23 18:00:29.639 INFO  [Thread-5] [o.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:00:29.642 INFO  [Thread-5] [o.apache.coyote.http11.Http11NioProtocol] - Destroying ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:00:29.723 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 7708 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 18:00:29.724 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 18:00:29.999 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 18:00:30.000 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:00:30.000 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 18:00:30.000 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 18:00:30.060 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 18:00:30.063 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 18:00:30.063 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 335 ms
+2024-04-23 18:00:30.216 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 18:00:30.225 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:00:30.230 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 18:00:30.231 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 18:00:30.231 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@68cbdc3e]]
+2024-04-23 18:00:30.231 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 18:00:30.234 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 0.552 seconds (process running for 76.612)
+2024-04-23 18:00:30.235 INFO  [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] - Condition evaluation unchanged
+2024-04-23 18:00:30.872 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 18:00:30.872 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@68cbdc3e]]
+2024-04-23 18:00:30.872 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 18:00:33.223 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 16572 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 18:00:33.225 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 18:00:33.270 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 18:00:33.270 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 18:00:34.526 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 18:00:34.541 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:00:34.544 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 18:00:34.545 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 18:00:34.766 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 18:00:34.780 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 18:00:34.780 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1509 ms
+2024-04-23 18:00:35.624 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 18:00:35.642 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:00:35.665 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 18:00:35.666 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 18:00:35.668 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7b07dc84]]
+2024-04-23 18:00:35.668 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 18:00:35.677 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 2.789 seconds (process running for 3.551)
+2024-04-23 18:00:58.486 INFO  [http-nio-8086-exec-3] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-23 18:00:58.487 INFO  [http-nio-8086-exec-3] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2024-04-23 18:00:58.490 INFO  [http-nio-8086-exec-3] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 2 ms
+2024-04-23 18:01:35.644 INFO  [MessageBroker-1] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2024-04-23 18:01:46.597 INFO  [http-nio-8086-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2024-04-23 18:01:47.181 INFO  [http-nio-8086-exec-5] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@314ffbb4
+2024-04-23 18:01:47.184 INFO  [http-nio-8086-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2024-04-23 18:02:01.343 INFO  [http-nio-8086-exec-4] [o.a.k.clients.producer.ProducerConfig] - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [192.168.56.101:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2024-04-23 18:02:01.419 INFO  [http-nio-8086-exec-4] [o.a.kafka.clients.producer.KafkaProducer] - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2024-04-23 18:02:01.553 INFO  [http-nio-8086-exec-4] [o.a.kafka.common.utils.AppInfoParser] - Kafka version: 3.4.1
+2024-04-23 18:02:01.554 INFO  [http-nio-8086-exec-4] [o.a.kafka.common.utils.AppInfoParser] - Kafka commitId: 8a516edc2755df89
+2024-04-23 18:02:01.555 INFO  [http-nio-8086-exec-4] [o.a.kafka.common.utils.AppInfoParser] - Kafka startTimeMs: 1713862921546
+2024-04-23 18:02:02.620 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.Metadata] - [Producer clientId=producer-1] Resetting the last seen epoch of partition message_chatting-0 to 0 since the associated topicId changed from null to tV19cMTURACtFF6sTYp7MQ
+2024-04-23 18:02:02.624 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.Metadata] - [Producer clientId=producer-1] Cluster ID: iKRNEF8bSNu85OjTJBF-yw
+2024-04-23 18:02:02.634 INFO  [kafka-producer-network-thread | producer-1] [o.a.k.c.p.internals.TransactionManager] - [Producer clientId=producer-1] ProducerId set to 3000 with epoch 0
+2024-04-23 18:10:27.229 INFO  [File Watcher] [o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-04-23 18:10:27.235 INFO  [Thread-5] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 18:10:27.235 INFO  [Thread-5] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7b07dc84]]
+2024-04-23 18:10:27.236 INFO  [Thread-5] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 18:10:27.248 INFO  [Thread-5] [o.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:27.250 INFO  [Thread-5] [o.apache.catalina.core.StandardService] - Stopping service [Tomcat]
+2024-04-23 18:10:27.251 INFO  [Thread-5] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2024-04-23 18:10:27.261 WARN  [Thread-5] [o.a.c.loader.WebappClassLoaderBase] - The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2024-04-23 18:10:27.261 WARN  [Thread-5] [o.a.c.loader.WebappClassLoaderBase] - The web application [ROOT] appears to have started a thread named [MessageBroker-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+ java.base@17.0.7/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3463)
+ java.base@17.0.7/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3434)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2024-04-23 18:10:27.262 WARN  [Thread-5] [o.a.c.loader.WebappClassLoaderBase] - The web application [ROOT] appears to have started a thread named [MessageBroker-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+ java.base@17.0.7/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3463)
+ java.base@17.0.7/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3434)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2024-04-23 18:10:27.263 WARN  [Thread-5] [o.a.c.loader.WebappClassLoaderBase] - The web application [ROOT] appears to have started a thread named [MessageBroker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+ java.base@17.0.7/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3463)
+ java.base@17.0.7/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3434)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2024-04-23 18:10:27.263 WARN  [Thread-5] [o.a.c.loader.WebappClassLoaderBase] - The web application [ROOT] appears to have started a thread named [MessageBroker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2024-04-23 18:10:27.264 WARN  [Thread-5] [o.a.c.loader.WebappClassLoaderBase] - The web application [ROOT] appears to have started a thread named [MessageBroker-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+ java.base@17.0.7/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3463)
+ java.base@17.0.7/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3434)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2024-04-23 18:10:27.264 WARN  [Thread-5] [o.a.c.loader.WebappClassLoaderBase] - The web application [ROOT] appears to have started a thread named [kafka-producer-network-thread | producer-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/sun.nio.ch.WEPoll.wait(Native Method)
+ java.base@17.0.7/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:111)
+ java.base@17.0.7/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:129)
+ java.base@17.0.7/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:141)
+ app//org.apache.kafka.common.network.Selector.select(Selector.java:874)
+ app//org.apache.kafka.common.network.Selector.poll(Selector.java:465)
+ app//org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:560)
+ app//org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:328)
+ app//org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:243)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2024-04-23 18:10:27.265 INFO  [Thread-5] [o.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:27.273 INFO  [Thread-5] [o.apache.coyote.http11.Http11NioProtocol] - Destroying ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:27.273 INFO  [Thread-5] [o.a.kafka.clients.producer.KafkaProducer] - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2024-04-23 18:10:27.279 INFO  [Thread-5] [org.apache.kafka.common.metrics.Metrics] - Metrics scheduler closed
+2024-04-23 18:10:27.279 INFO  [Thread-5] [org.apache.kafka.common.metrics.Metrics] - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-23 18:10:27.279 INFO  [Thread-5] [org.apache.kafka.common.metrics.Metrics] - Metrics reporters closed
+2024-04-23 18:10:27.279 INFO  [Thread-5] [o.a.kafka.common.utils.AppInfoParser] - App info kafka.producer for producer-1 unregistered
+2024-04-23 18:10:27.284 INFO  [Thread-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2024-04-23 18:10:27.311 INFO  [Thread-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2024-04-23 18:10:27.393 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 16572 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 18:10:27.395 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 18:10:27.816 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 18:10:27.817 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:27.817 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 18:10:27.817 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 18:10:27.909 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 18:10:27.912 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 18:10:27.913 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 508 ms
+2024-04-23 18:10:28.261 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 18:10:28.276 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:28.281 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 18:10:28.282 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 18:10:28.282 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@ac045bc]]
+2024-04-23 18:10:28.282 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 18:10:28.287 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 0.937 seconds (process running for 596.161)
+2024-04-23 18:10:28.290 INFO  [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] - Condition evaluation unchanged
+2024-04-23 18:10:29.679 INFO  [File Watcher] [o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-04-23 18:10:29.680 INFO  [Thread-9] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 18:10:29.680 INFO  [Thread-9] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@ac045bc]]
+2024-04-23 18:10:29.681 INFO  [Thread-9] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 18:10:29.693 INFO  [Thread-9] [o.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:29.693 INFO  [Thread-9] [o.apache.catalina.core.StandardService] - Stopping service [Tomcat]
+2024-04-23 18:10:29.697 INFO  [Thread-9] [o.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:29.698 INFO  [Thread-9] [o.apache.coyote.http11.Http11NioProtocol] - Destroying ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:29.767 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 16572 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 18:10:29.767 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 18:10:30.024 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 18:10:30.025 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:30.025 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 18:10:30.025 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 18:10:30.080 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 18:10:30.082 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 18:10:30.082 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 313 ms
+2024-04-23 18:10:30.216 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 18:10:30.221 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:30.223 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 18:10:30.224 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 18:10:30.224 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@60b24f98]]
+2024-04-23 18:10:30.224 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 18:10:30.228 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 0.486 seconds (process running for 598.102)
+2024-04-23 18:10:30.230 INFO  [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] - Condition evaluation unchanged
+2024-04-23 18:10:53.148 INFO  [File Watcher] [o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-04-23 18:10:53.152 INFO  [Thread-13] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 18:10:53.152 INFO  [Thread-13] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@60b24f98]]
+2024-04-23 18:10:53.152 INFO  [Thread-13] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 18:10:53.176 INFO  [Thread-13] [o.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:53.176 INFO  [Thread-13] [o.apache.catalina.core.StandardService] - Stopping service [Tomcat]
+2024-04-23 18:10:53.182 INFO  [Thread-13] [o.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:53.185 INFO  [Thread-13] [o.apache.coyote.http11.Http11NioProtocol] - Destroying ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:53.350 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 16572 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 18:10:53.351 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 18:10:54.210 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 18:10:54.212 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:54.215 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 18:10:54.216 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 18:10:54.444 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 18:10:54.456 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 18:10:54.458 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1101 ms
+2024-04-23 18:10:55.094 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 18:10:55.127 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:55.143 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 18:10:55.146 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 18:10:55.147 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7803cfa4]]
+2024-04-23 18:10:55.149 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 18:10:55.163 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 1.887 seconds (process running for 623.037)
+2024-04-23 18:10:55.168 INFO  [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] - Condition evaluation unchanged
+2024-04-23 18:10:56.547 INFO  [File Watcher] [o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-04-23 18:10:56.549 INFO  [Thread-17] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 18:10:56.550 INFO  [Thread-17] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7803cfa4]]
+2024-04-23 18:10:56.551 INFO  [Thread-17] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 18:10:56.566 INFO  [Thread-17] [o.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:56.568 INFO  [Thread-17] [o.apache.catalina.core.StandardService] - Stopping service [Tomcat]
+2024-04-23 18:10:56.575 INFO  [Thread-17] [o.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:56.577 INFO  [Thread-17] [o.apache.coyote.http11.Http11NioProtocol] - Destroying ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:56.760 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 16572 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 18:10:56.760 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 18:10:57.501 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 18:10:57.502 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:57.502 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 18:10:57.502 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 18:10:57.646 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 18:10:57.651 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 18:10:57.651 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 886 ms
+2024-04-23 18:10:58.044 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 18:10:58.074 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:10:58.084 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 18:10:58.084 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 18:10:58.084 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3be29c75]]
+2024-04-23 18:10:58.084 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 18:10:58.094 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 1.408 seconds (process running for 625.967)
+2024-04-23 18:10:58.096 INFO  [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] - Condition evaluation unchanged
+2024-04-23 18:11:16.716 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 18:11:16.716 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3be29c75]]
+2024-04-23 18:11:16.716 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 18:11:19.560 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 21092 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 18:11:19.563 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 18:11:19.618 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 18:11:19.618 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 18:11:20.659 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 18:11:20.666 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:11:20.668 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 18:11:20.668 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 18:11:20.827 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 18:11:20.835 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 18:11:20.836 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1217 ms
+2024-04-23 18:11:21.546 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 18:11:21.566 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:11:21.590 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 18:11:21.592 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 18:11:21.592 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@583cddc2]]
+2024-04-23 18:11:21.592 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 18:11:21.601 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 2.337 seconds (process running for 3.086)
+2024-04-23 18:11:28.930 INFO  [http-nio-8086-exec-3] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-23 18:11:28.931 INFO  [http-nio-8086-exec-3] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2024-04-23 18:11:28.932 INFO  [http-nio-8086-exec-3] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2024-04-23 18:11:29.058 INFO  [http-nio-8086-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2024-04-23 18:11:29.254 INFO  [http-nio-8086-exec-1] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1d8b9a4
+2024-04-23 18:11:29.256 INFO  [http-nio-8086-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2024-04-23 18:11:41.603 INFO  [http-nio-8086-exec-8] [o.a.k.clients.producer.ProducerConfig] - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [192.168.56.101:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2024-04-23 18:11:41.656 INFO  [http-nio-8086-exec-8] [o.a.kafka.clients.producer.KafkaProducer] - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2024-04-23 18:11:41.749 INFO  [http-nio-8086-exec-8] [o.a.kafka.common.utils.AppInfoParser] - Kafka version: 3.4.1
+2024-04-23 18:11:41.750 INFO  [http-nio-8086-exec-8] [o.a.kafka.common.utils.AppInfoParser] - Kafka commitId: 8a516edc2755df89
+2024-04-23 18:11:41.750 INFO  [http-nio-8086-exec-8] [o.a.kafka.common.utils.AppInfoParser] - Kafka startTimeMs: 1713863501745
+2024-04-23 18:11:42.553 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.Metadata] - [Producer clientId=producer-1] Resetting the last seen epoch of partition message_chatting-0 to 0 since the associated topicId changed from null to tV19cMTURACtFF6sTYp7MQ
+2024-04-23 18:11:42.558 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.Metadata] - [Producer clientId=producer-1] Cluster ID: iKRNEF8bSNu85OjTJBF-yw
+2024-04-23 18:11:42.561 INFO  [kafka-producer-network-thread | producer-1] [o.a.k.c.p.internals.TransactionManager] - [Producer clientId=producer-1] ProducerId set to 3001 with epoch 0
+2024-04-23 18:12:05.755 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 18:12:05.755 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@583cddc2]]
+2024-04-23 18:12:05.755 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 18:12:05.780 INFO  [SpringApplicationShutdownHook] [o.a.kafka.clients.producer.KafkaProducer] - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2024-04-23 18:12:05.786 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Metrics scheduler closed
+2024-04-23 18:12:05.787 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-23 18:12:05.787 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Metrics reporters closed
+2024-04-23 18:12:05.788 INFO  [SpringApplicationShutdownHook] [o.a.kafka.common.utils.AppInfoParser] - App info kafka.producer for producer-1 unregistered
+2024-04-23 18:12:05.792 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2024-04-23 18:12:05.814 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2024-04-23 18:12:09.358 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 10564 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 18:12:09.361 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 18:12:09.416 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 18:12:09.416 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 18:12:10.474 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 18:12:10.480 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:12:10.481 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 18:12:10.482 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 18:12:10.645 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 18:12:10.651 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 18:12:10.651 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1235 ms
+2024-04-23 18:12:11.361 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 18:12:11.382 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:12:11.406 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 18:12:11.408 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 18:12:11.408 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4c7e68c]]
+2024-04-23 18:12:11.409 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 18:12:11.421 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 2.363 seconds (process running for 3.103)
+2024-04-23 18:12:19.213 INFO  [http-nio-8086-exec-2] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-23 18:12:19.214 INFO  [http-nio-8086-exec-2] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2024-04-23 18:12:19.215 INFO  [http-nio-8086-exec-2] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2024-04-23 18:12:19.365 INFO  [http-nio-8086-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2024-04-23 18:12:19.555 INFO  [http-nio-8086-exec-1] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@892b869
+2024-04-23 18:12:19.556 INFO  [http-nio-8086-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2024-04-23 18:12:27.901 INFO  [http-nio-8086-exec-9] [o.a.k.clients.producer.ProducerConfig] - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [192.168.56.101:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2024-04-23 18:12:27.952 INFO  [http-nio-8086-exec-9] [o.a.kafka.clients.producer.KafkaProducer] - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2024-04-23 18:12:28.054 INFO  [http-nio-8086-exec-9] [o.a.kafka.common.utils.AppInfoParser] - Kafka version: 3.4.1
+2024-04-23 18:12:28.054 INFO  [http-nio-8086-exec-9] [o.a.kafka.common.utils.AppInfoParser] - Kafka commitId: 8a516edc2755df89
+2024-04-23 18:12:28.054 INFO  [http-nio-8086-exec-9] [o.a.kafka.common.utils.AppInfoParser] - Kafka startTimeMs: 1713863548051
+2024-04-23 18:12:28.937 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.Metadata] - [Producer clientId=producer-1] Resetting the last seen epoch of partition message_chatting-0 to 0 since the associated topicId changed from null to tV19cMTURACtFF6sTYp7MQ
+2024-04-23 18:12:28.941 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.Metadata] - [Producer clientId=producer-1] Cluster ID: iKRNEF8bSNu85OjTJBF-yw
+2024-04-23 18:12:28.943 INFO  [kafka-producer-network-thread | producer-1] [o.a.k.c.p.internals.TransactionManager] - [Producer clientId=producer-1] ProducerId set to 3002 with epoch 0
+2024-04-23 18:13:11.386 INFO  [MessageBroker-3] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 6], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 12]
+2024-04-23 18:14:10.107 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 18:14:10.107 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4c7e68c]]
+2024-04-23 18:14:10.108 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 18:14:10.130 INFO  [SpringApplicationShutdownHook] [o.a.kafka.clients.producer.KafkaProducer] - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2024-04-23 18:14:10.135 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Metrics scheduler closed
+2024-04-23 18:14:10.135 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-23 18:14:10.135 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Metrics reporters closed
+2024-04-23 18:14:10.135 INFO  [SpringApplicationShutdownHook] [o.a.kafka.common.utils.AppInfoParser] - App info kafka.producer for producer-1 unregistered
+2024-04-23 18:14:10.140 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2024-04-23 18:14:10.163 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2024-04-23 18:14:13.676 INFO  [restartedMain] [com.server.ServerApplication] - Starting ServerApplication using Java 17.0.7 with PID 14540 (C:\Dev\IdeaProjects\kafka\messenger\server\build\classes\java\main started by soumu in C:\Dev\IdeaProjects\kafka\messenger\server)
+2024-04-23 18:14:13.679 INFO  [restartedMain] [com.server.ServerApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-04-23 18:14:13.731 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-23 18:14:13.731 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-23 18:14:14.842 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8086 (http)
+2024-04-23 18:14:14.848 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:14:14.850 INFO  [restartedMain] [o.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2024-04-23 18:14:14.850 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-23 18:14:15.035 INFO  [restartedMain] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-04-23 18:14:15.043 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-04-23 18:14:15.043 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1311 ms
+2024-04-23 18:14:15.822 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2024-04-23 18:14:15.845 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8086"]
+2024-04-23 18:14:15.870 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8086 (http) with context path ''
+2024-04-23 18:14:15.871 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Starting...
+2024-04-23 18:14:15.871 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4d61c691]]
+2024-04-23 18:14:15.873 INFO  [restartedMain] [o.s.m.s.b.SimpleBrokerMessageHandler] - Started.
+2024-04-23 18:14:15.882 INFO  [restartedMain] [com.server.ServerApplication] - Started ServerApplication in 2.58 seconds (process running for 3.353)
+2024-04-23 18:14:22.806 INFO  [http-nio-8086-exec-3] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-23 18:14:22.806 INFO  [http-nio-8086-exec-3] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2024-04-23 18:14:22.807 INFO  [http-nio-8086-exec-3] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2024-04-23 18:14:22.931 INFO  [http-nio-8086-exec-4] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2024-04-23 18:14:23.120 INFO  [http-nio-8086-exec-4] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6e7307
+2024-04-23 18:14:23.121 INFO  [http-nio-8086-exec-4] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2024-04-23 18:14:39.123 INFO  [http-nio-8086-exec-10] [o.a.k.clients.producer.ProducerConfig] - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [192.168.56.101:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2024-04-23 18:14:39.179 INFO  [http-nio-8086-exec-10] [o.a.kafka.clients.producer.KafkaProducer] - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2024-04-23 18:14:39.276 INFO  [http-nio-8086-exec-10] [o.a.kafka.common.utils.AppInfoParser] - Kafka version: 3.4.1
+2024-04-23 18:14:39.276 INFO  [http-nio-8086-exec-10] [o.a.kafka.common.utils.AppInfoParser] - Kafka commitId: 8a516edc2755df89
+2024-04-23 18:14:39.276 INFO  [http-nio-8086-exec-10] [o.a.kafka.common.utils.AppInfoParser] - Kafka startTimeMs: 1713863679273
+2024-04-23 18:14:40.121 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.Metadata] - [Producer clientId=producer-1] Resetting the last seen epoch of partition message_chatting-0 to 0 since the associated topicId changed from null to tV19cMTURACtFF6sTYp7MQ
+2024-04-23 18:14:40.125 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.Metadata] - [Producer clientId=producer-1] Cluster ID: iKRNEF8bSNu85OjTJBF-yw
+2024-04-23 18:14:40.128 INFO  [kafka-producer-network-thread | producer-1] [o.a.k.c.p.internals.TransactionManager] - [Producer clientId=producer-1] ProducerId set to 3003 with epoch 0
+2024-04-23 18:15:15.852 INFO  [MessageBroker-8] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 6], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 12]
+2024-04-23 18:24:10.123 INFO  [kafka-producer-network-thread | producer-1] [org.apache.kafka.clients.NetworkClient] - [Producer clientId=producer-1] Node -1 disconnected.
+2024-04-23 18:45:15.856 INFO  [MessageBroker-5] [o.s.w.s.c.WebSocketMessageBrokerStats] - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 8 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(8)-CONNECTED(8)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 69], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 16], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 441]
+2024-04-23 19:15:14.204 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopping...
+2024-04-23 19:15:14.205 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4d61c691]]
+2024-04-23 19:15:14.205 INFO  [SpringApplicationShutdownHook] [o.s.m.s.b.SimpleBrokerMessageHandler] - Stopped.
+2024-04-23 19:15:14.226 INFO  [SpringApplicationShutdownHook] [o.a.kafka.clients.producer.KafkaProducer] - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2024-04-23 19:15:14.230 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Metrics scheduler closed
+2024-04-23 19:15:14.230 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-23 19:15:14.230 INFO  [SpringApplicationShutdownHook] [org.apache.kafka.common.metrics.Metrics] - Metrics reporters closed
+2024-04-23 19:15:14.230 INFO  [SpringApplicationShutdownHook] [o.a.kafka.common.utils.AppInfoParser] - App info kafka.producer for producer-1 unregistered
+2024-04-23 19:15:14.235 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2024-04-23 19:15:14.258 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
