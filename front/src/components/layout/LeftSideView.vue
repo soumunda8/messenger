@@ -95,7 +95,7 @@ export default {
       this.showThumbnailPopup = false
     },
     logoutPro () {
-      api.post('/logout')
+      api.post('/api/logout')
         .then(res => {
           this.$session.remove('userId')
           this.$session.remove('userNm')

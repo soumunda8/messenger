@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api")
 public class MemberCtrl {
 
     @Autowired
@@ -26,6 +27,12 @@ public class MemberCtrl {
         } else {
             return "fail";
         }
+    }
+
+    @PostMapping("/logout")
+    public boolean logoutPro() {
+        session.invalidate();
+        return true;
     }
 
 }

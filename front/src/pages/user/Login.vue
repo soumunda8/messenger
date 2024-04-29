@@ -19,7 +19,7 @@ export default {
     onsubmit (payload) {
       const id = payload.userId
       const pw = payload.userPw
-      api.post('/login', {id, pw})
+      api.post('/api/login', {id, pw})
         .then(res => {
           if (res.data === 'fail') {
             alert('아이디와 비밀번호를 다시 확인해주세요')
