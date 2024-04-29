@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.server.member.repository.MemberMapper">
 
-    <select id="checkUser" resultType="com.server.member.domain.MemberDAO">
-        SELECT * FROM userinfo WHERE id = #{id} and pw = #{pw}
+    <select id="findByUsername" resultType="com.server.member.domain.MemberDAO">
+        SELECT * FROM userinfo WHERE id = #{id}
     </select>
+
+    <insert id="registerMember" parameterType="com.server.member.domain.MemberDAO" useGeneratedKeys="true">
+        INSERT INTO userinfo VALUES (#{id}, #{pw}, #{usernm})
+    </insert>
 
 </mapper>

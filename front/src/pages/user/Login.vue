@@ -24,10 +24,13 @@ export default {
           if (res.data === 'fail') {
             alert('아이디와 비밀번호를 다시 확인해주세요')
           } else {
-            this.$session.set('userId', id) // 임시
-            this.$session.set('userNm', res.data) // 임시
-            this.$router.push({name: 'Enter'})
+            console.log(res.data.token)
+            // this.$session.set('userId', id) // 임시
+            // this.$session.set('userNm', res.data) // 임시
+            // this.$router.push({name: 'Enter'})
           }
+        }).catch(error => {
+          console.log(error)
         })
     }
   }
