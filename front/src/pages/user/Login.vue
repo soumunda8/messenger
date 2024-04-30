@@ -2,6 +2,7 @@
     <div id="codeArea">
         <h1>사용자 코드를 입력해주세요.</h1>
         <p><span class="point">※ 사용자 코드란?</span><span>신청하신 사용자에게 부여되는 고유 코드입니다.</span></p>
+        <p class="errMsg" v-if="errorMessage">{{ errorMessage }}</p>
         <login-form @submit="onsubmit" />
     </div>
 </template>
@@ -15,24 +16,33 @@ export default {
   components: {
     LoginForm
   },
+  data () {
+    return {
+      errorMessage: ''
+    }
+  },
   methods: {
     onsubmit (payload) {
       const id = payload.userId
       const pw = payload.userPw
       api.post('/api/login', {id, pw})
         .then(res => {
-          if (res.data === 'fail') {
-            alert('아이디와 비밀번호를 다시 확인해주세요')
+          this.$session.set('userId', id) // 임시
+          this.$session.set('userNm', res.data.username) // 임시
+          this.$router.push({name: 'Enter'})
+        })
+        .catch(err => {
+          if (err.response && err.response.status === 401) {
+            this.errorMessage = '아이디나 비밀번호를 다시 확인해주세요.'
           } else {
-            console.log(res.data.token)
-            // this.$session.set('userId', id) // 임시
-            // this.$session.set('userNm', res.data) // 임시
-            // this.$router.push({name: 'Enter'})
+            this.errorMessage = '잠시 후 다 시작해주세요.'
           }
-        }).catch(error => {
-          console.log(error)
         })
     }
   }
 }
 </script>
+
+<style scoped>
+#codeArea p.errMsg {font-weight: bold;color: red;padding: 0 0 5vh;}
+</style>

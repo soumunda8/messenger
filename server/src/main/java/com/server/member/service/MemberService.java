@@ -36,18 +36,12 @@ public class MemberService implements UserDetailsService {
         MemberDAO member = memberMapper.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
 
-        /*
-        return User.builder()
-                .username(member.getId())
-                .password(member.getPw())  // DB에 저장된 해시된 패스워드
-                .authorities("ROLE_USER")  // 실제 구현에 따라 권한 정보를 설정
-                .build();
-        */
         return new LoginResponse(
                 member.getId(),
                 member.getPw(),
                 AuthorityUtils.createAuthorityList("ROLE_USER"),
-                member.getUsernm()
+                member.getUsernm(),
+                ""
         );
     }
 
