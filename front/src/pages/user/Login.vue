@@ -9,7 +9,7 @@
 
 <script>
 import LoginForm from '@/components/user/LoginForm.vue'
-import api from '@/api'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Login',
@@ -23,23 +23,21 @@ export default {
   },
   methods: {
     onsubmit (payload) {
-      const id = payload.userId
-      const pw = payload.userPw
-      api.post('/api/login', {id, pw})
+      this.singin(payload)
         .then(res => {
-          this.$session.set('userId', id) // 임시
-          this.$session.set('userNm', res.data.username) // 임시
-          this.$router.push({name: 'Enter'})
+          alert('로그인이 완료되었습니다.')
+          // this.$router.push({name: 'Enter'})
         })
         .catch(err => {
           if (err.response && err.response.status === 401) {
             this.errorMessage = '아이디나 비밀번호를 다시 확인해주세요.'
           } else {
-            this.errorMessage = '잠시 후 다 시작해주세요.'
+            this.errorMessage = '잠시 후 다시 시도해주세요.'
           }
         })
     }
-  }
+  },
+  ...mapActions([ 'singin' ])
 }
 </script>
 
