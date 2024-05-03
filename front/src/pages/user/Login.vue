@@ -23,21 +23,22 @@ export default {
   },
   methods: {
     onsubmit (payload) {
-      this.singin(payload)
+      this.signin(payload)
         .then(res => {
           alert('로그인이 완료되었습니다.')
-          // this.$router.push({name: 'Enter'})
+          this.$router.push({name: 'Enter'})
         })
         .catch(err => {
+          console.log(err)
           if (err.response && err.response.status === 401) {
             this.errorMessage = '아이디나 비밀번호를 다시 확인해주세요.'
           } else {
             this.errorMessage = '잠시 후 다시 시도해주세요.'
           }
         })
-    }
-  },
-  ...mapActions([ 'singin' ])
+    },
+    ...mapActions([ 'signin' ])
+  }
 }
 </script>
 

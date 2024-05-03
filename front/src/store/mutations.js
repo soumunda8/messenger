@@ -1,19 +1,16 @@
-import { USERID, USERNM, SET_ACCESS_TOKEN } from './mutations-types'
+import { SET_ACCESS_TOKEN, SET_MY_INFO } from './mutations-types'
 import api from '@/api'
 
 export default {
-  [USERID] (state, userId) {
-    this.$session.set('userId', userId)
-    state.userId = userId
-  },
-  [USERNM] (state, userNm) {
-    this.$session.set('userNm', userNm)
-    state.userNm = userNm
-  },
   [SET_ACCESS_TOKEN] (state, accessToken) {
     if (accessToken) {
       state.accessToken = accessToken
       api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+    }
+  },
+  [SET_MY_INFO] (state, me) {
+    if (me) {
+      state.me = me
     }
   }
 }

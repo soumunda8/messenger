@@ -11,15 +11,15 @@ import java.util.Collection;
 @Setter
 public class LoginResponse extends User {
 
-    private String userid;
+    private String userId;
     private String userNm;
-    private String token;
+    private String accessToken;
 
-    public LoginResponse(String userid, String password, Collection<? extends GrantedAuthority> authorities, String userNm, String token) {
-        super(userid, password, authorities);
-        this.userid = userid;
+    public LoginResponse(String userId, String password, Collection<? extends GrantedAuthority> authorities, String userNm, String accessToken) {
+        super(userId, password, authorities);
+        this.userId = userId;
         this.userNm = userNm;
-        this.token = token;
+        this.accessToken = accessToken;
     }
 
 }

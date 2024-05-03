@@ -49,7 +49,7 @@ public class MemberCtrl {
             if (userDetails instanceof LoginResponse loginResponse) {
                 // 토큰 생성
                 String token = JwtUtils.generateToken(userDetails.getUsername());
-                loginResponse.setToken(token);
+                loginResponse.setAccessToken(token);
 
                 return ResponseEntity.ok(loginResponse);
             } else {
