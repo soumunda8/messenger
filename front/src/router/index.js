@@ -6,6 +6,7 @@ import Chat from '@/pages/chat/Chat'
 import Enter from '@/pages/chat/Enter'
 import Create from '@/pages/chat/Create'
 import Main from '@/pages/Main'
+import store from '@/store'
 
 Vue.use(Router)
 
@@ -46,12 +47,12 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  const userId = Vue.prototype.$session.get('userId')
+  const { isAuthorized } = store.getters
   const publicPages = ['Login', 'Join', 'Main']
   const authRequired = !publicPages.includes(to.name)
-  if (!userId && authRequired) {
+  if (!isAuthorized && authRequired) {
     next({ name: 'Main' })
-  } else if (userId && publicPages.includes(to.name)) {
+  } else if (isAuthorized && publicPages.includes(to.name)) {
     next({ name: 'Enter' })
   } else {
     next()

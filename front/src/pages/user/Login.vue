@@ -26,7 +26,7 @@ export default {
       this.signin(payload)
         .then(res => {
           alert('로그인이 완료되었습니다.')
-          this.$router.push({name: 'Enter'})
+          window.location.href = '/enter'
         })
         .catch(err => {
           console.log(err)

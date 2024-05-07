@@ -26,7 +26,7 @@
             <div id="leftFooter">
                 <div>
                     <div class="thumbnail"></div>
-                    <p>{{ this.$session.get('userNm') }}</p>
+                    <p v-if="me && me.userId">{{ me.userId }}</p>
                 </div>
                 <div class="btn_area">
                     <div id="thumbnailPopup">
@@ -50,11 +50,15 @@
 <script>
 import EnterChatRoom from '@/components/layout/EnterChatRoom.vue'
 import api from '@/api'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'LeftSideView',
   components: {
     EnterChatRoom
+  },
+  computed: {
+    ...mapState(['me'])
   },
   data () {
     return {
@@ -64,7 +68,7 @@ export default {
     }
   },
   created () {
-    const id = this.$session.get('userId')
+    const id = this.me.userId
 
     api.post('/getMyChatList', {id})
       .then(res => {
@@ -97,14 +101,14 @@ export default {
     logoutPro () {
       api.post('/api/logout')
         .then(res => {
-          this.$session.remove('userId')
-          this.$session.remove('userNm')
-          this.$router.push({name: 'Main'})
+          this.signout()
+          window.location.href = '/'
         })
         .catch(error => {
           console.error('Logout failed:', error)
         })
-    }
+    },
+    ...mapActions([ 'signout' ])
   }
 }
 </script>

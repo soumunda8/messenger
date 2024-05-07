@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'ChattingList',
   props: {
@@ -47,8 +49,9 @@ export default {
     }
   },
   computed: {
+    ...mapState(['me']),
     currentUserId () {
-      return this.$session.get('userId')
+      return this.me ? this.me.userId : null
     }
   },
   updated () {

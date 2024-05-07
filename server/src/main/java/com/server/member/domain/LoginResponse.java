@@ -1,6 +1,8 @@
 package com.server.member.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -9,17 +11,11 @@ import java.util.Collection;
 
 @Getter
 @Setter
-public class LoginResponse extends User {
+@NoArgsConstructor
+@AllArgsConstructor
+public class LoginResponse {
 
     private String userId;
     private String userNm;
-    private String accessToken;
-
-    public LoginResponse(String userId, String password, Collection<? extends GrantedAuthority> authorities, String userNm, String accessToken) {
-        super(userId, password, authorities);
-        this.userId = userId;
-        this.userNm = userNm;
-        this.accessToken = accessToken;
-    }
 
 }

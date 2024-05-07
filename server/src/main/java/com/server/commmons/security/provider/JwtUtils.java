@@ -22,4 +22,13 @@ public class JwtUtils {
                 .compact();
     }
 
+    public static String getUsernameFromToken(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(SECRET_KEY)
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .getSubject();
+    }
+
 }

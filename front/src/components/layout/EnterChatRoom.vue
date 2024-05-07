@@ -20,6 +20,7 @@
 
 <script>
 import api from '@/api'
+import { mapState } from 'vuex'
 
 export default {
   name: 'EnterChatRoom',
@@ -27,6 +28,9 @@ export default {
     enterChat: {
       type: Array
     }
+  },
+  computed: {
+    ...mapState(['me'])
   },
   data () {
     return {
@@ -50,7 +54,7 @@ export default {
       return !!this.openPopups[index]
     },
     outRoom (id) {
-      const sendernm = this.$session.get('userNm')
+      const sendernm = this.me.userNm
       if (confirm('방을 나가시면 모든 대화가 사라집니다.\n방을 나가시겠습니까?')) {
         api.post('/outRoom', {id, sendernm})
           .then(res => {

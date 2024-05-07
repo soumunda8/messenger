@@ -9,9 +9,13 @@
 import LeftSideView from '@/components/layout/LeftSideView.vue'
 import EnterRoomForm from '@/components/chat/EnterRoomForm.vue'
 import api from '@/api'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Chat',
+  computed: {
+    ...mapState(['me'])
+  },
   components: {
     LeftSideView,
     EnterRoomForm
@@ -19,8 +23,8 @@ export default {
   methods: {
     onclick (payload) {
       const roomid = payload.roomid
-      const senderid = this.$session.get('userId')
-      const sendernm = this.$session.get('userNm')
+      const senderid = this.me.userId
+      const sendernm = this.me.userNm
       api.post('/enterRoom', {roomid, senderid, sendernm})
         .then(res => {
           if (res.data) {

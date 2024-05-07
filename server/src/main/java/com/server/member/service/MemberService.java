@@ -1,17 +1,17 @@
 package com.server.member.service;
 
-import com.server.member.domain.LoginResponse;
 import com.server.member.domain.MemberDAO;
+import com.server.member.domain.MemberSecurity;
 import com.server.member.repository.MemberMapper;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class MemberService implements UserDetailsService {
@@ -26,6 +26,10 @@ public class MemberService implements UserDetailsService {
         return memberMapper.checkUser(memberDAO);
     }*/
 
+    public Optional<MemberDAO> findByUsername(String username) throws Exception {
+        return memberMapper.findByUsername(username);
+    }
+
     public int registerMember(MemberDAO memberDAO) throws Exception {
         memberDAO.setPw(bCryptPasswordEncoder.encode(memberDAO.getPw()));
         return memberMapper.registerMember(memberDAO);
@@ -36,7 +40,7 @@ public class MemberService implements UserDetailsService {
         MemberDAO member = memberMapper.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
 
-        return new LoginResponse(
+        return new MemberSecurity(
                 member.getId(),
                 member.getPw(),
                 AuthorityUtils.createAuthorityList("ROLE_USER"),

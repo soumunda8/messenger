@@ -20,6 +20,7 @@ import DrawingForm from '@/components/chat/DrawingForm.vue'
 import api from '@/api'
 import SockJS from 'sockjs-client'
 import Stomp from 'stompjs'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Chat',
@@ -28,6 +29,9 @@ export default {
     ChattingForm,
     ChattingList,
     DrawingForm
+  },
+  computed: {
+    ...mapState(['me'])
   },
   data () {
     return {
@@ -47,7 +51,7 @@ export default {
   },
   methods: {
     fetchChatList () {
-      const userid = this.$session.get('userId')
+      const userid = this.me.userId
       const roomid = this.$route.params.roomId
 
       api.post('/getChatList', {userid, roomid})
@@ -77,8 +81,8 @@ export default {
       const { message } = payload
       const roomid = this.$route.params.roomId
       const id = this.enterId
-      const senderid = this.$session.get('userId')
-      const sendernm = this.$session.get('userNm')
+      const senderid = this.me.userId
+      const sendernm = this.me.userNm
       api.post('/chat/send', {message, roomid, id, senderid, sendernm})
         .then(res => {
           this.$refs.chattingForm.clearMessage()
@@ -97,8 +101,8 @@ export default {
       const formData = new FormData()
       formData.append('roomId', this.$route.params.roomId)
       formData.append('enterId', this.enterId)
-      formData.append('userId', this.$session.get('userId'))
-      formData.append('userNm', this.$session.get('userNm'))
+      formData.append('userId', this.me.userId)
+      formData.append('userNm', this.me.userNm)
       formData.append('uploadFile', fileData.files[0])
       api.post('/chat/sendFile', formData, {
         headers: {
@@ -114,8 +118,8 @@ export default {
       const formData = new FormData()
       formData.append('roomId', this.$route.params.roomId)
       formData.append('enterId', this.enterId)
-      formData.append('userId', this.$session.get('userId'))
-      formData.append('userNm', this.$session.get('userNm'))
+      formData.append('userId', this.me.userId)
+      formData.append('userNm', this.me.userNm)
       formData.append('imageUrl', canvasData.imageUrl)
       api.post('/chat/sendDraw', formData)
         .then(res => {

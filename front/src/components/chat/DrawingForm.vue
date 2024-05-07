@@ -53,8 +53,7 @@ export default {
   },
   methods: {
     toggleShapesMenu () {
-      alert('준비중입니다.')
-      // this.showShapesMenu = !this.showShapesMenu
+      this.showShapesMenu = !this.showShapesMenu
     },
     setShape (shape) {
       this.currentShape = shape
@@ -117,6 +116,7 @@ export default {
     },
     drawShape (x, y) {
       const size = 50
+      this.context.fillStyle = this.selectedColor || 'black'
       this.context.beginPath()
       switch (this.currentShape) {
         case 'circle':
