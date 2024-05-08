@@ -16,7 +16,8 @@ const router = new Router({
     {
       path: '/',
       name: 'Main',
-      component: Main
+      component: Main,
+      redirect: '/login'
     },
     {
       path: '/login',
@@ -51,7 +52,8 @@ router.beforeEach((to, from, next) => {
   const publicPages = ['Login', 'Join', 'Main']
   const authRequired = !publicPages.includes(to.name)
   if (!isAuthorized && authRequired) {
-    next({ name: 'Main' })
+    // next({ name: 'Main' })
+    next({ name: 'Login' })
   } else if (isAuthorized && publicPages.includes(to.name)) {
     next({ name: 'Enter' })
   } else {

@@ -36,7 +36,7 @@
                             <ul>
                                 <li>
                                     <!--<router-link :to="{ name: 'Logout' }">로그아웃</router-link>-->
-                                    <a @click="logoutPro" >로그아웃</a>
+                                    <a @click="logoutPro" class="btn_point">로그아웃</a>
                                 </li>
                             </ul>
                         </div>
@@ -112,3 +112,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .btn_point {cursor: pointer;}
+</style>

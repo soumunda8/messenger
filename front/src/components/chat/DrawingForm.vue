@@ -4,13 +4,14 @@
           <canvas ref="canvas" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing" @mouseleave="stopDrawing"></canvas>
         </div>
         <ul class="controlBtn bottom left">
+            <li><button @click="triggerFileInput">배경</button></li>
             <li><button :class="{ active: drawMode === 'line' }" @click="setDrawMode('line')">선</button></li>
             <li>
-              <button @click="toggleShapesMenu">도형</button>
+              <button :class="{ active: this.drawMode.startsWith('shape_')}" @click="toggleShapesMenu">도형</button>
               <ul v-show="showShapesMenu" style="display: none;position: absolute;padding-left: 0;">
-                <li><button :class="{ active: drawMode === 'circle' }" @click="setShape('circle')">○</button></li>
-                <li><button :class="{ active: drawMode === 'triangle' }" @click="setShape('triangle')">△</button></li>
-                <li><button :class="{ active: drawMode === 'square' }" @click="setShape('square')">□</button></li>
+                <li><button :class="{ active: this.drawMode === 'shape_circle' }" @click="setShape('circle')">○</button></li>
+                <li><button :class="{ active: this.drawMode === 'shape_triangle' }" @click="setShape('triangle')">△</button></li>
+                <li><button :class="{ active: this.drawMode === 'shape_square' }" @click="setShape('square')">□</button></li>
               </ul>
             </li>
             <li><button :class="{ active: drawMode === 'free' }" @click="setDrawMode('free')">자유</button></li>
@@ -25,6 +26,7 @@
             <li><button @click="sendCanvas">전송</button></li>
             <li><button @click="closeCanvas">종료</button></li>
         </ul>
+        <input type="file" ref="fileInput" @change="handleFile" style="display: none;" accept="image/*">
     </div>
 </template>
 
@@ -57,7 +59,8 @@ export default {
     },
     setShape (shape) {
       this.currentShape = shape
-      this.drawMode = 'shape'
+      this.drawMode = 'shape_' + shape
+      this.showShapesMenu = false
     },
     setDrawMode (mode) {
       this.drawMode = mode
@@ -92,6 +95,9 @@ export default {
         this.context.lineJoin = 'round'
       }
     },
+    updateClearRect () {
+      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    },
     startDrawing (e) {
       this.drawing = true
       this.lastX = e.offsetX
@@ -104,48 +110,22 @@ export default {
     draw (e) {
       if (!this.drawing) return
       if (this.drawMode === 'free') {
-        this.context.lineTo(e.offsetX, e.offsetY)
+        this.drawFree(e.offsetX, e.offsetY)
+      } else if (this.drawMode === 'line') {
+        this.drawLine(e.offsetX, e.offsetY)
+      }
+    },
+    drawFree (x, y) {
+      requestAnimationFrame(() => {
+        this.context.lineTo(x, y)
         this.context.stroke()
         this.context.beginPath()
-        this.context.moveTo(e.offsetX, e.offsetY)
-      } else if (this.drawMode === 'line') {
-        this.updateLinePreview(e.offsetX, e.offsetY)
-      } else if (this.drawMode === 'shape' && this.currentShape) {
-        this.drawShape(e.offsetX, e.offsetY)
-      }
+        this.context.moveTo(x, y)
+      })
     },
-    drawShape (x, y) {
-      const size = 50
-      this.context.fillStyle = this.selectedColor || 'black'
-      this.context.beginPath()
-      switch (this.currentShape) {
-        case 'circle':
-          this.context.arc(x, y, size, 0, 2 * Math.PI)
-          break
-        case 'triangle':
-          this.context.moveTo(x, y - size)
-          this.context.lineTo(x + size, y + size)
-          this.context.lineTo(x - size, y + size)
-          this.context.closePath()
-          break
-        case 'square':
-          this.context.rect(x - size / 2, y - size / 2, size, size)
-          break
-      }
-      this.context.fill()
-    },
-    stopDrawing (e) {
-      if (!this.drawing) return
-      if (this.drawMode === 'line') {
-        this.context.lineTo(e.offsetX, e.offsetY)
-        this.context.stroke()
-        this.context.closePath()
-      }
-      this.drawing = false
-    },
-    updateLinePreview (x, y) {
+    drawLine (x, y) {
       requestAnimationFrame(() => {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.updateClearRect()
         this.initCanvas()
         this.context.beginPath()
         this.context.moveTo(this.lastX, this.lastY)
@@ -153,6 +133,40 @@ export default {
         this.context.stroke()
         this.context.closePath()
       })
+    },
+    drawShape (startX, startY, endX, endY) {
+      this.context.strokeStyle = this.selectedColor || 'black'
+      const centerX = (startX + endX) / 2
+      const centerY = (startY + endY) / 2
+      const distanceX = endX - startX
+      const distanceY = endY - startY
+      const radius = Math.sqrt(distanceX * distanceX + distanceY * distanceY) / 2
+      switch (this.currentShape) {
+        case 'circle':
+          this.context.arc(centerX, centerY, radius, 0, Math.PI * 2)
+          break
+        case 'square':
+          this.context.rect(startX, startY, distanceX, distanceY)
+          break
+        case 'triangle':
+          this.context.moveTo(startX, startY)
+          this.context.lineTo(endX, endY)
+          this.context.lineTo(startX * 2 - endX, endY)
+          this.context.closePath()
+          break
+      }
+      this.context.stroke()
+    },
+    stopDrawing (e) {
+      if (!this.drawing) return
+      if (this.drawMode === 'line') {
+        this.context.lineTo(e.offsetX, e.offsetY)
+        this.context.stroke()
+        this.context.closePath()
+      } else if (this.drawMode.startsWith('shape_') && this.currentShape) {
+        this.drawShape(this.lastX, this.lastY, e.offsetX, e.offsetY)
+      }
+      this.drawing = false
     },
     closeCanvas () {
       this.drawing = false
@@ -172,6 +186,30 @@ export default {
       link.href = imageUrl
       // link.click() // 링크 클릭 시 다운로드
       this.$emit('canvas-prepared', { imageUrl })
+    },
+    triggerFileInput () {
+      this.$refs.fileInput.click()
+    },
+    handleFile (e) {
+      const file = e.target.files[0]
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader()
+        reader.onload = (e) => {
+          this.setCanvasBackgroundSetting(e.target.result)
+        }
+        reader.readAsDataURL(file)
+      }
+    },
+    setCanvasBackgroundSetting (imgSrc) {
+      const canvas = this.$refs.canvas
+      if (!canvas) return
+      const context = canvas.getContext('2d')
+      const image = new Image()
+      image.onload = () => {
+        context.clearRect(0, 0, canvas.width, canvas.height)
+        context.drawImage(image, 0, 0, canvas.width, canvas.height)
+      }
+      image.src = imgSrc
     }
   },
   watch: {
@@ -233,7 +271,6 @@ export default {
 
 .controlBtn li > ul {
   bottom: 40px;
-  background-color: #fff;
 }
 
 .controlBtn li > ul > li {
