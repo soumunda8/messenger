@@ -71,11 +71,20 @@ export default {
       this.stompClient.debug = null
 
       this.stompClient.connect({}, frame => {
-        this.stompClient.subscribe('/chat/' + roomid, message => {
+        this.sendUserState()
+        this.stompClient.subscribe(`/chat/${roomid}`, message => {
           const chatData = JSON.parse(message.body)
           this.chatList.push(chatData)
         })
       })
+    },
+    sendUserState () {
+      const data = JSON.stringify({
+        userId: this.me.userId,
+        state: true
+      })
+
+      this.stompClient.send(`/chat/send/userState`, {}, data)
     },
     submitChat (payload) {
       const { message } = payload

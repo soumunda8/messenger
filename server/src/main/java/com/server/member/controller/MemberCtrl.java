@@ -4,11 +4,15 @@ import com.server.commmons.security.provider.JwtUtils;
 import com.server.member.domain.LoginRequest;
 import com.server.member.domain.LoginResponse;
 import com.server.member.domain.MemberDAO;
+import com.server.member.domain.MemberStatus;
 import com.server.member.service.MemberService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -59,6 +63,12 @@ public class MemberCtrl {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Authentication failed: " + e.getMessage());
         }
 
+    }
+
+    @MessageMapping("/userState")
+    @SendTo("/chat/send/status")
+    public MemberStatus loginUser(@Payload MemberStatus status) {
+        return new MemberStatus(status.getUserId(), true);
     }
 
     @GetMapping("/users/me")

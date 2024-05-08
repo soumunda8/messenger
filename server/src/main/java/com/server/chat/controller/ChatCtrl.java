@@ -14,20 +14,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.zip.GZIPInputStream;
 
 @RestController
 @RequiredArgsConstructor
@@ -284,6 +287,37 @@ public class ChatCtrl {
     @PostMapping(value="/getMyChatList")
     public List<UserChatVO> getMyChatList(@RequestBody MemberDAO memberDAO) throws Exception {
         return chatService.getUserChatRoom(memberDAO.getId());
+    }
+
+    @MessageMapping("/shareDrawing/{roomId}")
+    @SendTo("/chat/send/draw/{roomId}")
+    public String handleDrawing(byte[] compressedData, @DestinationVariable int roomId) throws IOException {
+        System.out.println("Data length: " + compressedData.length);    // 데이터 길이 확인
+        if (compressedData == null || compressedData.length == 0) {
+            System.out.println("Received empty or null data");
+            return "{}";
+        }
+        ByteArrayInputStream bais = new ByteArrayInputStream(compressedData);
+        //GZIPInputStream gzipInputStream;
+        try {
+            //gzipInputStream = new GZIPInputStream(bais);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int len;
+            //while ((len = gzipInputStream.read(buffer)) != -1) {
+            while ((len = bais.read(buffer)) != -1) {
+                baos.write(buffer, 0, len);
+            }
+            //gzipInputStream.close();
+            baos.close();
+
+            String imageDataJson = new String(baos.toByteArray(), StandardCharsets.UTF_8);
+            return imageDataJson;
+        } catch (Exception e) {
+            //e.printStackTrace();
+            System.out.println("GZIP format error: " + e.getMessage());
+            return "{}";  // 에러 발생 시 빈 JSON 반환
+        }
     }
 
     @GetMapping("/download")

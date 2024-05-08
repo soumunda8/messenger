@@ -5,6 +5,7 @@
         </div>
         <ul class="controlBtn bottom left">
             <li><button @click="triggerFileInput">배경</button></li>
+            <li><button @click="shareDrawing">공유하기</button></li>
             <li><button :class="{ active: drawMode === 'line' }" @click="setDrawMode('line')">선</button></li>
             <li>
               <button :class="{ active: this.drawMode.startsWith('shape_')}" @click="toggleShapesMenu">도형</button>
@@ -31,6 +32,10 @@
 </template>
 
 <script>
+import SockJS from 'sockjs-client'
+import Stomp from 'stompjs'
+import pako from 'pako'
+
 export default {
   name: 'DrawingForm',
   data () {
@@ -43,7 +48,12 @@ export default {
       lastY: 0,
       drawMode: 'free',
       showShapesMenu: false,
-      currentShape: null
+      currentShape: null,
+      canDraw: true,
+      stompClient: null,
+      roomId: this.$route.params.roomId,
+      apiDrawUrl: process.env.VUE_APP_URL,
+      apiDrawPort: process.env.VUE_SERVER_PORT
     }
   },
   mounted () {
@@ -52,6 +62,9 @@ export default {
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.updateCanvasSize)
+    if (this.stompClient) {
+      this.stompClient.disconnect()
+    }
   },
   methods: {
     toggleShapesMenu () {
@@ -99,6 +112,7 @@ export default {
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
     },
     startDrawing (e) {
+      if (!this.canDraw) return
       this.drawing = true
       this.lastX = e.offsetX
       this.lastY = e.offsetY
@@ -108,6 +122,7 @@ export default {
       }
     },
     draw (e) {
+      if (!this.canDraw) return
       if (!this.drawing) return
       if (this.drawMode === 'free') {
         this.drawFree(e.offsetX, e.offsetY)
@@ -171,6 +186,9 @@ export default {
     closeCanvas () {
       this.drawing = false
       this.$emit('toggle-canvas')
+      if (this.stompClient) {
+        this.stompClient.disconnect()
+      }
     },
     removeAll () {
       this.context.clearRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height)
@@ -210,6 +228,48 @@ export default {
         context.drawImage(image, 0, 0, canvas.width, canvas.height)
       }
       image.src = imgSrc
+    },
+    shareDrawing () {
+      alert('aaa')
+      this.initializeSocketConnection()
+      const canvas = this.$refs.canvas
+      canvas.toBlob(blob => {
+        const reader = new FileReader()
+        reader.onload = () => {
+          const arrayBuffer = reader.result
+          const compressedData = pako.gzip(new Uint8Array(arrayBuffer))
+          const blobToSend = new Blob([compressedData], {type: 'application/octet-stream'})
+          if (this.stompClient && this.stompClient.connected) {
+            this.stompClient.send(`/chat/send/shareDrawing/${this.roomId}`, {}, blobToSend)
+          }
+        }
+        reader.readAsArrayBuffer(blob)
+      }, 'image/jpeg', 0.75)
+    },
+    receiveCanvas (imageUrl) {
+      if (imageUrl === '{}') {
+        alert('처리중입니다')
+        return
+      }
+      const image = new Image()
+      image.onload = () => {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.context.drawImage(image, 0, 0, this.canvas.width, this.canvas.height)
+      }
+      image.src = imageUrl
+    },
+    initializeSocketConnection () {
+      const socket = new SockJS(`${this.apiDrawUrl}:${this.apiDrawPort}/ws-stomp`)
+      this.stompClient = Stomp.over(socket)
+      this.stompClient.debug = null
+
+      this.stompClient.connect({}, frame => {
+        this.stompClient.subscribe(`/chat/send/draw/${this.roomId}`, message => {
+          this.receiveCanvas(message.body)
+        })
+      }, error => {
+        console.error('STOMP connection error:', error)
+      })
     }
   },
   watch: {
@@ -217,6 +277,7 @@ export default {
       this.context.strokeStyle = newColor
     }
   }
+
 }
 </script>
 

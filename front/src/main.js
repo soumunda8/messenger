@@ -4,17 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-// import VueSession from 'vue-session'
 import Cookies from 'js-cookie'
 
 Vue.config.productionTip = false
-/*
-var sessionOptions = {
-  persist: true
-}
 
-Vue.use(VueSession, sessionOptions)
-*/
 function init () {
   const saveToken = Cookies.get('accessToken')
   if (saveToken) {
@@ -28,8 +21,8 @@ init().then(() => {
   new Vue({
     el: '#app',
     router,
+    store,
     components: { App },
-    template: '<App/>',
-    store
+    template: '<App/>'
   })
 })
