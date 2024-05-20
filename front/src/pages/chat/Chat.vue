@@ -6,7 +6,8 @@
         <input type="hidden" v-model="enterId" />
         <drawing-form ref="drawingForm" v-show="showCanvas" @toggle-canvas="toggleCanvas" @canvas-prepared="sendCanvas" />
         <chatting-list v-bind:chatList="chatList" @toggle-canvas="toggleCanvas" />
-        <chatting-form ref="chattingForm" @toggle-canvas="toggleCanvas" @submitChat="submitChat" @file-prepared="sendFile" :uploadStatus="uploadStatus" />
+        <chatting-form ref="chattingForm" @toggle-subject="toggleSubject" @toggle-canvas="toggleCanvas" @submitChat="submitChat" @file-prepared="sendFile" :uploadStatus="uploadStatus" />
+        <subject-form v-show="showSubject" @toggle-subject="toggleSubject"></subject-form>
       </div>
     </div>
   </div>
@@ -17,6 +18,7 @@ import LeftSideView from '@/components/layout/LeftSideView.vue'
 import ChattingForm from '@/components/chat/ChattingForm.vue'
 import ChattingList from '@/components/chat/ChattingList.vue'
 import DrawingForm from '@/components/chat/DrawingForm.vue'
+import SubjectForm from '@/components/chat/SubjectForm.vue'
 import api from '@/api'
 import SockJS from 'sockjs-client'
 import Stomp from 'stompjs'
@@ -28,7 +30,8 @@ export default {
     LeftSideView,
     ChattingForm,
     ChattingList,
-    DrawingForm
+    DrawingForm,
+    SubjectForm
   },
   computed: {
     ...mapState(['me'])
@@ -40,6 +43,7 @@ export default {
       chatList: [],
       uploadStatus: null,
       showCanvas: false,
+      showSubject: false,
       apiUrl: process.env.VUE_APP_URL,
       apiPort: process.env.VUE_SERVER_PORT,
       canvasBackgroundImage: ''
@@ -149,6 +153,9 @@ export default {
           }
         })
       }
+    },
+    toggleSubject () {
+      this.showSubject = !this.showSubject
     }
   },
   beforeDestroy () {

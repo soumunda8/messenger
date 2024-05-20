@@ -1,11 +1,11 @@
 <template>
     <div id="canvasArea" ref="canvasArea">
         <div>
-          <canvas ref="canvas" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing" @mouseleave="stopDrawing"></canvas>
+          <canvas ref="canvas" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing" @mouseleave="stopDrawing" @touchstart="startDrawing" @touchmove="draw" @touchend="stopDrawing" @touchcancel="stopDrawing"></canvas>
         </div>
         <ul class="controlBtn bottom left">
             <li><button @click="triggerFileInput">배경</button></li>
-            <li><button @click="shareDrawing">공유하기</button></li>
+            <!-- <li><button @click="shareDrawing">공유하기</button></li> -->
             <li><button :class="{ active: drawMode === 'line' }" @click="setDrawMode('line')">선</button></li>
             <li>
               <button :class="{ active: this.drawMode.startsWith('shape_')}" @click="toggleShapesMenu">도형</button>
@@ -34,7 +34,7 @@
 <script>
 import SockJS from 'sockjs-client'
 import Stomp from 'stompjs'
-import pako from 'pako'
+// import pako from 'pako'
 
 export default {
   name: 'DrawingForm',
@@ -78,6 +78,17 @@ export default {
     setDrawMode (mode) {
       this.drawMode = mode
     },
+    getCoordinates (e) {
+      if (e.touches) {
+        const rect = this.$refs.canvas.getBoundingClientRect()
+        return {
+          x: e.touches[0].clientX - rect.left,
+          y: e.touches[0].clientY - rect.top
+        }
+      } else {
+        return { x: e.offsetX, y: e.offsetY }
+      }
+    },
     updateCanvasSize () {
       const canvas = this.$refs.canvas
       if (canvas) {
@@ -114,20 +125,29 @@ export default {
     startDrawing (e) {
       if (!this.canDraw) return
       this.drawing = true
+      /*
       this.lastX = e.offsetX
       this.lastY = e.offsetY
       this.context.beginPath()
       if (this.drawMode === 'line') {
         this.context.moveTo(this.lastX, this.lastY)
       }
+      */
+      const { x, y } = this.getCoordinates(e)
+      this.lastX = x
+      this.lastY = y
+      this.context.beginPath()
+      if (this.drawMode === 'line') {
+        this.context.moveTo(this.lastX, this.lastY)
+      }
     },
     draw (e) {
-      if (!this.canDraw) return
-      if (!this.drawing) return
+      if (!this.canDraw || !this.drawing) return
+      const { x, y } = this.getCoordinates(e)
       if (this.drawMode === 'free') {
-        this.drawFree(e.offsetX, e.offsetY)
+        this.drawFree(x, y)
       } else if (this.drawMode === 'line') {
-        this.drawLine(e.offsetX, e.offsetY)
+        this.drawLine(x, y)
       }
     },
     drawFree (x, y) {
@@ -137,6 +157,12 @@ export default {
         this.context.beginPath()
         this.context.moveTo(x, y)
       })
+      /*
+      this.context.lineTo(x, y)
+      this.context.stroke()
+      this.lastX = x
+      this.lastY = y
+      */
     },
     drawLine (x, y) {
       requestAnimationFrame(() => {
@@ -148,6 +174,13 @@ export default {
         this.context.stroke()
         this.context.closePath()
       })
+      /*
+      this.updateClearRect()
+      this.context.beginPath()
+      this.context.moveTo(this.lastX, this.lastY)
+      this.context.lineTo(x, y)
+      this.context.stroke()
+      */
     },
     drawShape (startX, startY, endX, endY) {
       this.context.strokeStyle = this.selectedColor || 'black'
@@ -155,10 +188,9 @@ export default {
       const centerY = (startY + endY) / 2
       const distanceX = endX - startX
       const distanceY = endY - startY
-      const radius = Math.sqrt(distanceX * distanceX + distanceY * distanceY) / 2
       switch (this.currentShape) {
         case 'circle':
-          this.context.arc(centerX, centerY, radius, 0, Math.PI * 2)
+          this.context.ellipse(centerX, centerY, Math.abs(distanceX) / 2, Math.abs(distanceY) / 2, 0, 0, Math.PI * 2)
           break
         case 'square':
           this.context.rect(startX, startY, distanceX, distanceY)
@@ -230,7 +262,8 @@ export default {
       image.src = imgSrc
     },
     shareDrawing () {
-      alert('aaa')
+      alert('준비중입니다.')
+      /*
       this.initializeSocketConnection()
       const canvas = this.$refs.canvas
       canvas.toBlob(blob => {
@@ -245,6 +278,7 @@ export default {
         }
         reader.readAsArrayBuffer(blob)
       }, 'image/jpeg', 0.75)
+      */
     },
     receiveCanvas (imageUrl) {
       if (imageUrl === '{}') {

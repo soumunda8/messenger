@@ -8,11 +8,14 @@
       <li><button type="button" @click="openFile(1)">앨범</button></li>
       <li><button type="button" @click="openFile(2)">파일</button></li>
       <li><button type="button" @click="openDraw()">드로잉</button></li>
+      <li><button type="button" @click="openImage()">과제</button></li>
     </ul>
   </div>
 </template>
 
 <script>
+import FilePicker from 'sockjs-client/lib/utils/iframe'
+
 export default {
   name: 'FileSendForm',
   props: {
@@ -61,6 +64,12 @@ export default {
       const files = event.target.files
       if (files.length === 0) return
       this.$emit('file-prepared', { files })
+
+      const filePath = URL.createObjectURL(files[0])
+      FilePicker.postMessage(filePath)
+    },
+    openImage () {
+      this.$emit('toggle-subject')
     }
   }
 }
